@@ -3,10 +3,30 @@
     padding:0px;
     box-sizing: border-box;
 }
-.main {
+.header {
     width: 1224px;
     margin:auto;
+    padding: 25px 0px;
 }
 .connect {
-    color:red;
+    color:white;
+    width: 70%;
+}
+.social-network {
+    margin-left: 10px;
+}
+.header-space {
+    margin-left: 3px;
+}
+.contact-information {
+    display:flex;
+}
+.user-space {
+    margin-left:3px;
+}
+.information-user {
+    color:white;
+}
+.header-main {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,14,1) 0%, rgba(0,212,255,1) 53%);
 }
