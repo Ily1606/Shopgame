@@ -8,7 +8,7 @@
 <body>
 <div class="main">
 <div class="header">
-<div class="contact-information">
+<div class="contact-information">s
 <div class="connect">
     <span>Kênh người bán</span>
     <span>|</span>
