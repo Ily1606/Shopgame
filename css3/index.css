@@ -9,7 +9,6 @@
     padding: 25px 0px;
 }
 .connect {
-    color:white;
     width: 70%;
 }
 .social-network {
@@ -25,8 +24,256 @@
     margin-left:3px;
 }
 .information-user {
-    color:white;
+    color:red;
 }
 .header-main {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,14,1) 0%, rgba(0,212,255,1) 53%);
+    background-color: #f1d4d4;
+    color: red;
+}
+.header-logo {
+    width : 1224px;
+    margin: auto;
+}
+.logo {
+    width: 50%;
+    margin-top: 20px;
+}
+.logo-border {
+    border : 5px dotted red;
+    height: 50px;
+    border-radius: 100px;
+    width: 80%;
+    
+}
+.logo-in {
+    color: white;
+    padding: 10px;
+    width: max-content;
+    border-radius: 100px;
+}
+.logo-in {
+    position: relative;
+    animation-name: move;
+    animation-duration: 6s;
+    animation-delay: 2s;
+    animation-iteration-count :infinite;
+
+    
+}
+@keyframes move {
+
+        0%   {background-color:red; left:0px; top:0px;}
+        50%  {background-color:green; left:370px; top:0px;}
+        100% {background-color:blue; left:0px; top:0px;}
+    }
+    .header-logo {
+        display:flex;
+        vertical-align: middle;
+    }
+    .header-input {
+        width: 542px;
+        padding: 10px;  
+        outline:none;
+        border-color: white; 
+        border-width:5px;   
+    }
+    .search-information {
+        margin-top: 23px;
+    }
+    .fa-shopping-cart {
+        font-size: 1.5rem;
+        color: white;
+        position: relative;
+        top:5px;
+        right: 0.5em;
+        
+    }
+    .fa-search {
+        position: relative;
+        right: 2.5rem;
+        top: 5px ;
+    }
+ .nav-main {
+     width:1224px;
+     margin:auto;
+     padding: 20px 0px;
+     display:flex;
+
+ } 
+ .nav-border {
+     margin-left: 5rem;
+ }
+ .nav-body {
+     
+ }
+ .nav-font-size {
+     font-size : 2rem;
+
+ }
+ .nav-bottom {
+     margin-top: 10px;
+     font-weight: bold;
+     font-size: 20px;
+ }
+ .fa-home {
+     position: relative;
+     left: 10px;
+ }
+ .fa-truck {
+    position: relative;
+    left: 35px;
+ }
+ .fa-bolt {
+    position: relative;
+    left: 3em;
+ }
+ .fa-hand-spock {
+    position: relative;
+    left: 2em;
+ }
+ .fa-coins {
+    position: relative;
+    left: 2em;
+ }
+ .fa-assistive-listening-systems {
+    position: relative;
+    left: 1em;
+ }
+ .nav {
+    background-color: #f9813a   ;
+    color: white;
+
+ }
+  ::placeholder{
+      color:red;
+      
+  }
+.body-main {
+    width: 1224px;
+    margin:auto;
+    padding: 50px 0px;
+    display:flex;
+}
+.body-left {
+    width: 25%;
+}
+.word-all-information {
+    font-size: 20px;
+    margin-left: 15px;
+}  
+.all-flie {
+    display: flex;
+}
+.fa-bowling-ball {
+    font-size:20px;
+}
+.tbody-left-border {
+    border :1px solid #394867;
+    width:80%;
+    margin-top: 1rem;
+    opacity: 0.1;
+}
+.general-1 {
+    margin-left: 20px;
+    padding: 15px 0px;
+    color:#ee4d2d;
+}
+.fa-play {
+    position: relative;
+    right:1rem;
+}
+.fa-angle-down {
+    position: relative;
+    top:3px;
+}
+.general-2 {
+    margin-left: 2rem;
+    margin-top:10px;
+}
+.general-2-0 {
+    margin-left: 2rem;
+}
+.fa-phoenix-squadron {
+    position: relative;
+    right:1rem;
+}
+.word-size {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left:5px;
+}
+.general-3 {
+    margin-left: 1.5rem;
+    margin-top:10px;
+}
+.button-1 {
+    position: relative;
+    right: 1rem;
+}
+.table-2 {
+    margin-top: 1em;
+}
+.table-3 {
+    margin-top: 1em;
+}
+.input-1 {
+    width: 20%;
+    outline:none;
+}
+.price-input {
+    display:flex;
+    margin-top:10px;
+}
+.space-price-input {
+    margin-left:20px;
+}
+.input-1::placeholder {
+     text-align: center;
+}
+.click-input {
+    border : 2px solid red;
+    outline:none;
+    background-color:red;
+    width: 51%;
+    margin-top: 15px;
+    padding: 8px;
+    text-align:center;
+    color:white;
+}
+.table-4 {
+    margin-top:10px;
+}
+.table-5 {
+    margin-top:10px;
+}
+.fa-star {
+    color:red;
+    position:relative;
+    top: 10px;
+}
+.fa-star-1 {
+    margin-left: 10px;
+}
+.star-1 {
+    display:flex;
+}
+.star-full {
+   margin-top:9px;
+   margin-left: 1.5rem;
+   font-weight: bold;
+}
+.star-2 {
+    display:flex;
+}
+.far-star-2 {
+    margin-left: 10px;
+}
+.star-3 {
+    display:flex;
+}
+.star-4 {
+    display:flex;
+}
+.star-5 {
+    display:flex;
 }
