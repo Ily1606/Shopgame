@@ -118,11 +118,11 @@
 
                     <div class="table-2">
                         <div class="word-size">Đơn vị vận chuyển</div>
-                        <div class="general-3"><input type="radio" name="button1" class="button-1" id="label-6"></input><label for="label-6">Shopgame</label></div> <!-- checkbox nơi bán -->
-                        <div class="general-3"><input type="radio" name="button1" class="button-1" id="label-7"></input><label for="label-7">Giao hàng tiết kiệm</label></div> <!-- checkbox nơi bán -->
-                        <div class="general-3"><input type="radio" name="button1" class="button-1" id="label-8"></input><label for="label-8">Giao hàng nhanh</label></label></div> <!-- checkbox nơi bán -->
-                        <div class="general-3"><input type="radio" name="button1" class="button-1" id="label-9"></input><label for="label-9">NowShip</label></div> <!-- checkbox nơi bán -->
-                        <div class="general-3"><input type="radio" name="button1" class="button-1" id="label-10"></input><label for="label-10">Thêm</label><i class="fas fa-angle-down"></i></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-6"></input><label for="label-6">Shopgame</label></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-7"></input><label for="label-7">Giao hàng tiết kiệm</label></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-8"></input><label for="label-8">Giao hàng nhanh</label></label></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-9"></input><label for="label-9">NowShip</label></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-10"></input><label for="label-10">Thêm</label><i class="fas fa-angle-down"></i></div> <!-- checkbox nơi bán -->
                         <div class="tbody-left-border"></div>
                     </div>
 
@@ -140,8 +140,8 @@
 
                     <div class="table-4">
                         <div class="word-size">Tình trạng sản phẩm</div>
-                        <div class="general-3"><input type="radio" name="button2" class="button-1" id="label-11"></input><label for="label-11">Sản phẩm mới</label></label></div> <!-- checkbox nơi bán -->
-                        <div class="general-3"><input type="radio" name="button2" class="button-1" id="label-12"></input><label for="label-12">Sản phẩm cũ</label></div>
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-11"></input><label for="label-11">Sản phẩm mới</label></label></div> <!-- checkbox nơi bán -->
+                        <div class="general-3"><input type="radio" name="button" class="button-1" id="label-12"></input><label for="label-12">Sản phẩm cũ</label></div>
                     </div>
                     <div class="tbody-left-border"></div>
 
@@ -199,7 +199,38 @@
                 </div>
 
             </div>
-            <div class="body-right">huy</div>
+            <div class="body-right">
+             <div class="sort">
+             <div class="sort-div">Sắp xếp theo<i class="fas fa-arrow-right"></i></div>
+             <div class="sort-padding-top">
+             <div class="body-right-border body-right-border-space">Phổ Biến </div>
+             <div class="body-right-border">Mới Nhất</div>
+             <div class="body-right-border">Bán chạy</div>
+             <div class="body-right-border">Trending</div> 
+              <div class="body-right-border1 ">Giá<i class="fas fa-arrow-circle-down"></i></div>   
+              <div class="click-sort">Áp Dụng</div>   
+            </div>         
+             </div>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
         </div>
     </div>
 </body>
