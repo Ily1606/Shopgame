@@ -40,7 +40,7 @@ class Regsiter
         else
             return false;
     }
-    public function main()
+    public function process()
     {
         $data = [];
         include_once($_SERVER["DOCUMENT_ROOT"] . "/_connect.php");
