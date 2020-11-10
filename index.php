@@ -200,36 +200,47 @@
 
             </div>
             <div class="body-right">
-             <div class="sort">
-             <div class="sort-div">Sắp xếp theo<i class="fas fa-arrow-right"></i></div>
-             <div class="sort-padding-top">
-             <div class="body-right-border body-right-border-space">Phổ Biến </div>
-             <div class="body-right-border">Mới Nhất</div>
-             <div class="body-right-border">Bán chạy</div>
-             <div class="body-right-border">Trending</div> 
-              <div class="body-right-border1 ">Giá<i class="fas fa-arrow-circle-down"></i></div>   
-              <div class="click-sort">Áp Dụng</div>   
-            </div>         
-             </div>
-             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                <div class="sort">
+                    <div class="sort-div">Sắp xếp theo<i class="fas fa-arrow-right"></i></div>
+                    <div class="sort-padding-top">
+                        <div class="body-right-border body-right-border-space">Phổ Biến </div>
+                        <div class="body-right-border">Mới Nhất</div>
+                        <div class="body-right-border">Bán chạy</div>
+                        <div class="body-right-border">Trending</div>
+                        <div class="body-right-border1 ">Giá<i class="fas fa-arrow-circle-down"></i></div>
+                        <div class="click-sort">Áp Dụng</div>
+                    </div>
+                </div>
+                <div class="flex-img">
+                             <div class=""><img src="css3/image/Ban-Hang.jpg" class="grenal-img"></div>
+                             <div class=""><img src="css3/image/Ban-Hang.jpg" class="grenal-img"></div>
+                             <div class=""><img src="css3/image/Ban-Hang.jpg" class="grenal-img"></div>
+                             <div class=""><img src="css3/image/Ban-Hang.jpg" class="grenal-img"></div>
+                             <div class=""><img src="css3/image/Ban-Hang.jpg" class="grenal-img"></div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>

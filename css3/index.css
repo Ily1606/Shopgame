@@ -338,3 +338,11 @@
     padding: 10px;
     margin-left: 5rem;
 }
+.grenal-img {
+    width: 210px;
+}
+.flex-img {
+    display:flex;
+    padding: 20px 0px;
+
+}
