@@ -39,14 +39,36 @@ if(isset($_SESSION["id"])){
 
                     <div class="header">
                         <img class="logo" src="../assets/images/favicon.png" alt="">
-                        <h5>Đăng nhập</h5>
+                        <h5>Đăng ký</h5>
                     </div>
                     <div class="body">
-                        <form action="/moddle/user.php?action=login" method="POST" id="submit_form">
+                        <form action="/moddle/user.php?action=regsister" method="POST" id="submit_form">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email của bạn" name="email">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                </div>
+                            </div>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Tên đăng nhập" name="username">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Số điện thoại" name="number_phone">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="radio inlineblock m-r-20">
+                                    <input type="radio" name="gender" id="male" class="with-gap" value="1">
+                                    <label for="male">Nam</label>
+                                </div>
+                                <div class="radio inlineblock m-r-20">
+                                    <input type="radio" name="gender" id="female" class="with-gap" value="2">
+                                    <label for="female">Nữ</label>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
@@ -55,16 +77,18 @@ if(isset($_SESSION["id"])){
                                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                 </div>
                             </div>
-                            <div class="checkbox">
-                                <input id="remember_me" type="checkbox">
-                                <label for="remember_me">Ghi nhớ</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="re_password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                </div>
                             </div>
                             <div id="result"></div>
-                            <button class="btn btn-primary btn-block waves-effect waves-light">ĐĂNG NHẬP</button>
+                            <button class="btn btn-primary btn-block waves-effect waves-light">ĐĂNG KÝ</button>
                         </form>
                     </div>
                     <div class="copyright text-center">
-                        <a href="/regsister.php">Đăng ký</a>
+                        <a href="/login.php">Đăng nhập</a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-12">

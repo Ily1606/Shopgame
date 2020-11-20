@@ -8,7 +8,7 @@ class Login
     public function __construct($username, $password = NULL)
     {
         $this->username = $username;
-        $this->password = $password;
+        $this->password = md5($password);
     }
     public function check_exist_username($res)
     {
@@ -25,7 +25,6 @@ class Login
             return false;
     }
     public function login($res){
-        session_start();
         $row = mysqli_fetch_assoc($res);
         $_SESSION["username"] = $row["username"];
         $_SESSION["id"] = $row["id"];
@@ -36,7 +35,7 @@ class Login
     public function process()
     {
         $result = [];
-        include_once($_SERVER["DOCUMENT_ROOT"] . "/_connect.php");
+        GLOBAL $conn;
         $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE username = '$this->username'");
         if ($this->check_exist_username($res)) {
             $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE username = '$this->username' AND passwords = '$this->password'");
@@ -44,8 +43,6 @@ class Login
                 $this->login($res);
                 $result["status"] = true;
                 $result["msg"] = "Đăng nhập thành công!";
-                return $this->get_result();
-                
             } else {
                 $result["status"] = false;
                 $result["msg"] = "Sai mật khẩu!";
