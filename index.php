@@ -67,45 +67,6 @@ if ($check_login) {
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="tbody">
         <div class="main-nav">
             <div class="nav-left"></div>
@@ -128,11 +89,6 @@ if ($check_login) {
 
         </div>
     </div>
-
-
-
-
-
     <div class="body-main">
         <div class="body-left">
             <div class="main-left">
@@ -141,14 +97,16 @@ if ($check_login) {
                 </div>
                 <div class="tbody-left-border"></div>
                 <div class="left-general-information">
-                    <div class="general-1"> <i class="fas fa-play"></i>Sức Khỏe & Sắc Đẹp</div>
+                    <div class="general-1"> <i class="fas fa-play"></i>Thể loại game</div>
                 </div>
 
-                <div class="general-2-0">Chăm sóc da</div>
-                <div class="general-2">Son & và chăm sóc môi</div>
-                <div class="general-2">Trang điểm da</div>
-                <div class="general-2">Trang điểm mắt</div>
-                <div class="general-2">Mỹ phẩm nam</div>
+                <div class="general-2-0">CS Go</div>
+                <div class="general-2">Liên minh huyền thoại</div>
+                <div class="general-2">Liên minh tốc chiến</div>
+                <div class="general-2">PUBG</div>
+                <div class="general-2">Free Fire</div>
+                <div class="general-2">Liên quân mobile</div>
+                <div class="general-2">Apex Lengends</div>
                 <div class="general-2">Thêm <i class="fas fa-angle-down"></i></div>
 
 
@@ -173,7 +131,6 @@ if ($check_login) {
                     <div class="general-3"><input type="radio" name="button" class="button-1" id="label-6"></input><label for="label-6">Shopgame</label></div> <!-- checkbox nơi bán -->
                     <div class="general-3"><input type="radio" name="button" class="button-1" id="label-7"></input><label for="label-7">Giao hàng tiết kiệm</label></div> <!-- checkbox nơi bán -->
                     <div class="general-3"><input type="radio" name="button" class="button-1" id="label-8"></input><label for="label-8">Giao hàng nhanh</label></label></div> <!-- checkbox nơi bán -->
-                    <div class="general-3"><input type="radio" name="button" class="button-1" id="label-9"></input><label for="label-9">NowShip</label></div> <!-- checkbox nơi bán -->
                     <div class="general-3"><input type="radio" name="button" class="button-1" id="label-10"></input><label for="label-10">Thêm</label><i class="fas fa-angle-down"></i></div> <!-- checkbox nơi bán -->
                     <div class="tbody-left-border"></div>
                 </div>
@@ -404,6 +361,566 @@ if ($check_login) {
                         </div>
                     </div>
                 </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
+                <div class="border-img-0"><img src="css3/image/Ban-Hang.jpg" class="grenal-img">
+                    <div class="informatiton">
+                        <p class="word-information">Mã sản phẩm</p>
+                    </div>
+                    <div class="word-information d-flex">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="text_progess">40%</div>
+                        </div>
+                    </div>
+                    <div class="d-flex star_rate">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class=" d-flex">
+                        <div class="col-left">
+                            <div class="price">
+                                <div class="font-size-p">150.000 VND</div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            Đà Nẵng
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -417,7 +934,10 @@ if ($check_login) {
             <div class="footer-1-flex">
                 <div class="footer-1">
                     <i class="fas fa-undo-alt"></i>
-                    <div class="footer-1-word">7 ngày miễn phí trả hàng &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Trả hàng miễn phí trong 7 ngày</div>
+                    <div class="footer-1-word">
+                        <p>7 ngày miễn phí trả hàng</p>
+                        <p>Trả hàng miễn phí trong 7 ngày</p>
+                    </div>
                 </div>
 
                 <div class="footer-2 footer-2-1">

@@ -80,7 +80,6 @@ if(isset($_SESSION["id"])){
     <script type="text/javascript">
         $(document).ready(function() {
             $("#submit_form").submit(function() {
-                console.info("OK");
                 $.ajax({
                     url: $(this).attr("action"),
                     method: $(this).attr("method"),

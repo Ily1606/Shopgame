@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,700");
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+}
+
+body {
+    transition: all 0.5s;
+    font-family: "Comfortaa", sans-serif;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .header {
@@ -11,7 +20,7 @@
 }
 
 .connect {
-    width: 70%;
+    width: 65%;
 }
 
 .social-network {
@@ -355,11 +364,11 @@
     color: black;
     margin-left: 30px;
 }
+
 input:disabled {
     background: #ffffff;
-
-
 }
+
 .body-right-border-2 {
     width: 200px;
     outline: none;
@@ -444,17 +453,22 @@ input:disabled {
     padding: 5px;
     margin-left: 9px;
 }
+
 .img-left {
     width: 60%;
 }
+
 .border-img-0 {
     border: 2px solid red;
     padding: 10px;
-    margin-left: 8px;
+    margin-right: 2px;
+    margin-top: 5px;
 }
-.border-img-0:nth-child(1){
+
+.border-img-0:nth-child(1) {
     margin-left: 0px;
 }
+
 .font-size-p {
     display: inline;
     font-size: 14px;
@@ -534,8 +548,9 @@ input:disabled {
     display: flex;
     animation: 1s;
 }
+
 .nav-right {
-    display:flex;
+    display: flex;
 }
 
 .main-nav {
@@ -569,7 +584,7 @@ input:disabled {
 .nav-right {
     width: 74%;
     border: 1px solid #555;
-    background-color:#EDEDED;
+    background-color: #EDEDED;
 }
 
 .fixed-one {
@@ -590,10 +605,12 @@ input:disabled {
     animation-timing-function: ease;
     animation-fill-mode: forwards;
 }
-.animation-one:hover>*{
+
+.animation-one:hover>* {
     transition: all 1s;
     transform: translateX(58px);
 }
+
 @keyframes demo {
     from {
         background-color: red;
@@ -626,10 +643,12 @@ input:disabled {
     top: 37%;
     transition: all 2s;
 }
+
 .move_1 {
     opacity: 1;
     transform: translateY(100px);
 }
+
 .d-flex {
     display: flex;
     justify-content: space-between;
@@ -666,244 +685,263 @@ input:disabled {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.star_rate{
+
+.star_rate {
     justify-content: center;
     color: #e6ce1d;
     margin-bottom: 10px;
     font-weight: bold;
 }
-.nav-2
-{
+
+.nav-2 {
     border-radius: 25px;
 }
+
 .main-img {
     width: 1224px;
     margin: auto;
     padding: 25px 0px;
-    display:flex;
+    display: flex;
 }
-.back > .fa-arrow-left
- {
-      font-size: 2.5em;
-      position: relative;
-      top: 4.5em;
-      left: 1em;
-      color:#ffffff;
-}
-.img-flex {
-    display:flex;
-    position: relative;
-    width:max-content;
 
-}
-.next> .fa-arrow-right {
+.back>.fa-arrow-left {
     font-size: 2.5em;
     position: relative;
     top: 4.5em;
-    right:1em;
-    color:#ffffff;
+    left: 1em;
+    color: #ffffff;
 }
+
+.img-flex {
+    display: flex;
+    position: relative;
+    width: max-content;
+}
+
+.next>.fa-arrow-right {
+    font-size: 2.5em;
+    position: relative;
+    top: 4.5em;
+    right: 1em;
+    color: #ffffff;
+}
+
 .li-flex {
-    display:flex;
+    display: flex;
     position: absolute;
     top: 380px;
     left: 300px;
-   
 }
+
 .border-li {
-    width:15px;
-    height:15px;
-    border : 2px solid #ffffff;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ffffff;
     margin-left: 20px;
     border-radius: 25px;
-  
 }
-.border-li-1 {
-    background-color:white;
-}
-.border-so-1 {
-   border :1px solid red;
-   background-color:red;
-   width:min-content;
-   padding:10px;
-   color:white;
-   border-radius: 50%;
 
+.border-li-1 {
+    background-color: white;
 }
-.one-flex {
-    display:flex;
-   
-}
-.information-1 {
-    background-color:green;
+
+.border-so-1 {
+    border: 1px solid red;
+    background-color: red;
+    width: min-content;
+    padding: 10px;
     color: white;
-    padding:9px;
+    border-radius: 50%;
+}
+
+.one-flex {
+    display: flex;
+}
+
+.information-1 {
+    background-color: green;
+    color: white;
+    padding: 9px;
     margin-left: 2em;
     width: 100%;
-    padding-left:3em;
+    padding-left: 3em;
 }
+
 .img-right {
     width: 39%;
-    padding:38px;
-    background-color:#EDEDED;
-    border:none;
-    opacity: 1 ;
+    padding: 38px;
+    background-color: #EDEDED;
+    border: none;
+    opacity: 1;
 }
+
 .one-flex-2 {
-    display:flex;
+    display: flex;
     margin-top: 30px;
 }
-.dropdown-table {
-    display:none;
 
+.dropdown-table {
+    display: none;
 }
+
 .dropdown-font {
     font-size: 1.5em;
     margin-top: 20px;
-    color:white;
+    color: white;
     width: 80%;
 }
+
 .dropdown {
     position: relative;
 }
-.dropdown:hover > .dropdown-table  {
+
+.dropdown:hover>.dropdown-table {
     position: absolute;
     width: 700px;
     height: 200px;
     border: 1px solid red;
-    display:block;
+    display: block;
     z-index: 10;
     top: 65px;
     background-color: darkolivegreen;
-    border:none;
-    color:black;
+    border: none;
+    color: black;
     border-radius: 15px;
     box-shadow: 5px 5px 5px 5px #fff;
 }
+
 .dropdown-one {
-    display:flex;
-    
+    display: flex;
 }
+
 .one-center {
-    text-align:center;
+    text-align: center;
 }
+
 .one-center-1 {
     margin-top: 20px;
     font-size: 20px;
-
 }
-.dropdown:hover >.dropdown-table-two {
+
+.dropdown:hover>.dropdown-table-two {
     position: absolute;
     width: 350px;
     height: 220px;
     border: 1px solid red;
-    display:block;
+    display: block;
     z-index: 10;
     top: 65px;
     background-color: darkolivegreen;
-    border:none;
-    color:black;
+    border: none;
+    color: black;
     border-radius: 15px;
     box-shadow: 5px 5px 5px 5px #fff;
-  
+}
 
-}
 .dropdown-table-two {
-    display:none;
+    display: none;
 }
+
 .dropdown-font-1 {
     font-size: 1.5em;
     margin-top: 20px;
-    color:white;
-    text-align:center; 
+    color: white;
+    text-align: center;
     width: 100%;
-    
 }
+
 .two-center {
-    margin-top:20px;
-    font-size:18px;
+    margin-top: 20px;
+    font-size: 18px;
 }
-.dropdown:hover >.dropdown-table-three {
+
+.dropdown:hover>.dropdown-table-three {
     position: absolute;
     width: 550px;
     height: 200px;
     border: 1px solid red;
-    display:block;
+    display: block;
     z-index: 10;
     top: 65px;
     background-color: darkolivegreen;
-    border:none;
-    color:black;
+    border: none;
+    color: black;
     border-radius: 15px;
     box-shadow: 5px 5px 5px 5px #fff;
- 
+}
 
+.dropdown-table-three {
+    display: flex;
+    display: none;
 }
-.dropdown-table-three{
-    display:flex;
-    display:none;
-}
-.poster> .fa-angle-left {
+
+.poster>.fa-angle-left {
     font-size: 4em;
     position: absolute;
     top: 300px;
     left: 50px;
-    color:white;
-
+    color: white;
 }
-.poster > .fa-angle-right{
+
+.poster>.fa-angle-right {
     font-size: 4em;
     position: absolute;
     top: 300px;
     right: 50px;
-    color:white;
+    color: white;
 }
+
 .poster {
     position: relative;
 }
+
 .poster {
     width: 1624px;
-    margin:auto;
+    margin: auto;
 }
+
 .box-img {
     transition: all 1s;
 }
+
 .img_animation_1 {
     transition: all 2s;
     animation-name: image;
     animation-duration: 3s;
 }
- @keyframes image {
-         from {
-                
-         }
- }
- .fixed-right {
-     position: fixed;
-     top: 500px;
-     right: 0px;
- }
- .fixed-right-border {
-     border :1px solid black;
-     padding:10px;
-     border-top-left-radius: 25px;
-     border-bottom-left-radius: 25px;
-     background-color:black;
-     color:white;
- }
- .fixed-right:hover > .fixed-table {
-     background-color:black;
-     color:white;
-     padding: 15px;
-     margin-top: 10px;  
-     border-radius:15px;
-     display:block;
-     
- }
- .phone {
-     margin-top:10px;
 
- }
- .fixed-table {
-     display:none;
- }
+@keyframes image {
+    from {}
+}
+
+.fixed-right {
+    position: fixed;
+    top: 500px;
+    right: 0px;
+}
+
+.fixed-right-border {
+    border: 1px solid black;
+    padding: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background-color: black;
+    color: white;
+}
+
+.fixed-right:hover>.fixed-table {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 15px;
+    display: block;
+}
+
+.phone {
+    margin-top: 10px;
+}
+
+.fixed-table {
+    display: none;
+}
