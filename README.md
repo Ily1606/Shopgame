@@ -29,6 +29,8 @@
 >
 > 4. Updating...
 
-
+## Kết luận update ngày 01/12/2020
+>
+> Tập trung vào front-end, dựng back-end theo hướng đối tượng trước.
 
 
