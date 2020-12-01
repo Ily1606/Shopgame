@@ -11,11 +11,12 @@
                 </span>
             </div>
             <div class="information-user">
-                <i class="fas fa-bell"></i>
-                <span>Thông báo</span>
+                <span class="notification"><i class="fas fa-bell "></i>Thông báo
+                    <div class="notification-hover">
+                        <p>Thông báo</p>
+                    </div></span>
                 <span class="user-space">|</span>
-                <i class="fas fa-question-circle"></i>
-                <span class="user-space">Trợ giúp</span>
+                <span class="user-space"> <i class="fas fa-question-circle"></i>Trợ giúp</span>
                 <?php if ($check_login) { ?>
                     <span class="user-space">|</span>
                     <span class="user-space"><?php echo $username; ?></span>

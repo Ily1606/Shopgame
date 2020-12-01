@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("_connect.php");
+ /* include_once("_connect.php"); */
 include_once("functions/Class.profile.php");
 include_once("functions/functions.php");
 $check_login = check_login();
@@ -40,27 +40,8 @@ if ($check_login) {
                 </div>
             </div>
             <div class="img-right">
-                <div class="one-flex">
-                    <div class="border-so-1">1</div>
-                    <div class="information-1">Shop Chị Hàn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Top 1</div>
-                </div>
-                <div class="one-flex-2">
-                    <div class="border-so-1">2</div>
-                    <div class="information-1">Shop Chị Hàn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Top 2</div>
-                </div>
-                <div class="one-flex-2">
-                    <div class="border-so-1">3</div>
-                    <div class="information-1">Shop Chị Hàn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Top 3</div>
-                </div>
-                <div class="one-flex-2">
-                    <div class="border-so-1">4</div>
-                    <div class="information-1">Shop Chị Hàn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Top 4</div>
-                </div>
-                <div class="one-flex-2">
-                    <div class="border-so-1">5</div>
-                    <div class="information-1">Shop Chị Hàn &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Top 5</div>
-                </div>
-
+                    <img src="css3/image/games6.jpg" width="470px"; height="200px">
+                    <img src="css3/image/games7.jpg" width="470px;" height="200px">
 
             </div>
 
