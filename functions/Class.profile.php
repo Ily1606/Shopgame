@@ -1,15 +1,24 @@
 <?php
 class Profile
 {
-    public $res;
+    public $res = false;
     public $id;
     public function __construct($id)
     {
         $this->id = $id;
         global $conn;
         $rs = mysqli_query($conn, "SELECT * FROM table_accounts WHERE id = $id");
-        $rs = mysqli_fetch_assoc($rs);
-        $this->res = $rs;
+        if (mysqli_num_rows($rs)) {
+            $rs = mysqli_fetch_assoc($rs);
+            $this->res = $rs;
+        }
+    }
+    public function get_res(){
+        return $this->res;
+    }
+    public function get_fullname(){
+        $row = $this->res;
+        return $row["first_name"]." ".$row["last_name"];
     }
     public function get_username()
     {

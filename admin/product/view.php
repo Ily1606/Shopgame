@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("../_connect.php");
-include("../functions/Class.profile.php");
-include("../functions/functions.php");
+include("../../_connect.php");
+include("../../functions/Class.profile.php");
+include("../../functions/functions.php");
 $check_login = check_login();
 if ($check_login) {
     $id = $_SESSION["id"];
@@ -18,18 +18,18 @@ if ($check_login) {
 }
 ?>
 <html>
-<?php include_once("../header.php"); ?>
+<?php include_once("../../header.php"); ?>
 </head>
 
 <body class="theme-blush">
     <!-- Right Icon menu Sidebar -->
-    <?php include_once("slidebar.php") ?>
+    <?php include_once("../slidebar.php"); ?>
     <!-- Main Content -->
     <section class="content">
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Trang quản trị viên</h2>
+                    <h2>Trang quản lý sản phẩm</h2>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">

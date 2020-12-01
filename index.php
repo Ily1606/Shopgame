@@ -1,6 +1,6 @@
 <?php
 session_start();
- /* include_once("_connect.php"); */
+include_once("_connect.php");
 include_once("functions/Class.profile.php");
 include_once("functions/functions.php");
 $check_login = check_login();

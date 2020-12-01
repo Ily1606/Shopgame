@@ -2,7 +2,7 @@
 session_start();
 include_once("../_connect.php");
 foreach ($_POST as $key => $value) {
-    $$key = mysqli_real_escape_string($conn, $value);
+    $$key = htmlspecialchars(mysqli_real_escape_string($conn, $value));
 }
 $data = array();
 if (isset($_GET["action"])) {
@@ -20,8 +20,8 @@ if (isset($_GET["action"])) {
         }
     } else if ($action == "regsister") {
          include_once("../functions/Class.Regsiter.php");
-        if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["number_phone"]) && isset($_POST["gender"]) && isset($_POST["password"]) && isset($_POST["re_password"])) {
-            $regsister = new Regsiter($username,$password,$re_password,$gender,$email,$number_phone);
+        if (isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["number_phone"]) && isset($_POST["gender"]) && isset($_POST["password"]) && isset($_POST["re_password"])&& isset($_POST["first_name"])&& isset($_POST["last_name"])) {
+            $regsister = new Regsiter($username,$password,$re_password,$gender,$email,$number_phone, $first_name, $last_name);
             $rs = $regsister->process();
             $data =$regsister->get_result();
         } else {

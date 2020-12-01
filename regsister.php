@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["id"])){
+if (isset($_SESSION["id"])) {
     header("Location: /");
     die;
 }
@@ -59,6 +59,16 @@ if(isset($_SESSION["id"])){
                                 <input type="text" class="form-control" placeholder="Số điện thoại" name="number_phone">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Họ" name="first_name">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Tên đệm" name="last_name">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group mb-3">
