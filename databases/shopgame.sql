@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2020 lúc 10:10 AM
+-- Thời gian đã tạo: Th12 01, 2020 lúc 04:11 PM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.2.32
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `table_accounts` (
   `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL DEFAULT 'member',
   `username` varchar(255) NOT NULL,
   `passwords` varchar(255) NOT NULL,
@@ -42,9 +44,8 @@ CREATE TABLE `table_accounts` (
 -- Đang đổ dữ liệu cho bảng `table_accounts`
 --
 
-INSERT INTO `table_accounts` (`id`, `role`, `username`, `passwords`, `email`, `number_phone`, `gender`, `create_time`) VALUES
-(1, 'admin', 'Ily1606', '6d590d0d8702e8132a77913bf707de45', 'khuonmatdangthuong45@gmail.com', '0328267412', 1, '2020-11-20 14:40:59'),
-(2, 'member', 'Ily9001', '6d590d0d8702e8132a77913bf707de45', 'no1.ily1606@gmail.com', '0328267412', 1, '2020-11-21 03:40:44');
+INSERT INTO `table_accounts` (`id`, `first_name`, `last_name`, `role`, `username`, `passwords`, `email`, `number_phone`, `gender`, `create_time`) VALUES
+(3, 'Nguyễn', 'Nguyên', 'member', 'Ily1606', '6d590d0d8702e8132a77913bf707de45', 'khuonmatdangthuong45@gmail.com', '0328267412', 1, '2020-12-01 13:19:28');
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,7 @@ ALTER TABLE `table_type`
 -- AUTO_INCREMENT cho bảng `table_accounts`
 --
 ALTER TABLE `table_accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `table_product`
