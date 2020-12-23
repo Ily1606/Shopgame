@@ -12,7 +12,7 @@
             </div>
             <div class="information-user">
                 <span class="notification"><i class="fas fa-bell "></i>Thông báo
-                    <div class="notification-hover">
+                    <div class="notification-hover triangle">
                         <p>Thông báo</p>
                     </div></span>
                 <span class="user-space">|</span>
@@ -24,9 +24,9 @@
                     <span class="user-space"><a href="/logout.php">Đăng xuất</a></span>
                 <?php } else { ?>
                     <span class="user-space">|</span>
-                    <span class="user-space"><a href="/login.php">Đăng nhập</a></span>
+                    <span class="user-space user-space-10 "><a href="/login.php">Đăng nhập</a></span>
                     <span class="user-space">|</span>
-                    <span class="user-space"><a href="/regsister.php">Đăng kí</a></span>
+                    <span class="user-space user-space-10"><a href="/regsister.php">Đăng kí</a></span>
                 <?php } ?>
             </div>
         </div>
