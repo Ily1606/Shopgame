@@ -8,8 +8,14 @@ if (check_login()) {
         $action = $_GET["action"];
         if ($action == "add") {
             include_once("add.php");
-        } elseif ($action == "view") { 
+        } elseif ($action == "view") {
+            if (isset($_GET["user"])) {
+                $id = mysqli_real_escape_string($conn, $_GET["user"]);
+            }
             include_once("view.php");
+        }
+        elseif($action == "edit"){
+            include_once("edit.php");
         }
     }
 }

@@ -13,6 +13,11 @@ body {
     font-size: 15px;
 }
 
+a {
+    color: inherit!important;
+    text-decoration: unset;
+}
+
 .header {
     width: 1224px;
     margin: auto;
@@ -38,7 +43,6 @@ body {
 .user-space {
     margin-left: 3px;
     cursor: pointer;
-
 }
 
 .information-user {
@@ -123,14 +127,13 @@ body {
     font-size: 1.5rem;
     color: white;
     position: relative;
-    top: 5px;
     right: 0.5em;
 }
 
 .fa-search {
     position: relative;
     right: 2.5rem;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .nav-main {
@@ -183,7 +186,6 @@ body {
     background-color: #f9813a;
     color: white;
     height: 107px;
-
 }
 
  ::placeholder {
@@ -213,6 +215,7 @@ body {
 .fa-bowling-ball {
     font-size: 20px;
 }
+
 .general-1 {
     margin-left: 20px;
     padding: 15px 0px;
@@ -232,6 +235,7 @@ body {
 .general-2 {
     margin-left: 2rem;
     margin-top: 10px;
+    display: block;
 }
 
 .general-2-0 {
@@ -405,9 +409,10 @@ input:disabled {
 }
 
 .grenal-img {
-    width: 140px;
+    width: 100%;
     margin-left: 10px;
     padding: 5px;
+    height: 200px;
 }
 
 .flex-img {
@@ -438,6 +443,10 @@ input:disabled {
     padding: 10px 0px;
     text-align: center;
     font-weight: bold;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .word-information-1 {
@@ -459,6 +468,8 @@ input:disabled {
     padding: 10px;
     margin-right: 2px;
     margin-top: 5px;
+    width: calc(100% / 4 - 10px);
+    height: 350px;
 }
 
 .border-img-0:nth-child(1) {
@@ -569,7 +580,7 @@ input:disabled {
 
 .nav-border>.fa-truck {
     position: relative;
-    color: white;   
+    color: white;
     left: 1em;
 }
 
@@ -617,8 +628,8 @@ input:disabled {
         background-color: blue;
         color: white;
         width: 150px;
-        border:0;
-        outline:none;
+        border: 0;
+        outline: none;
     }
 }
 
@@ -671,8 +682,7 @@ input:disabled {
 }
 
 .progress_bar {
-    width: 40%;
-    background-color: red;
+    background-color: #f9813a;
     height: 100%;
     border-radius: 25px;
 }
@@ -690,7 +700,6 @@ input:disabled {
     margin-bottom: 10px;
     font-weight: bold;
 }
-
 .nav-2 {
     border-radius: 25px;
 }
@@ -764,6 +773,7 @@ input:disabled {
     width: 100%;
     padding-left: 3em;
 }
+
 .one-flex-2 {
     display: flex;
     margin-top: 30px;
@@ -805,6 +815,7 @@ input:disabled {
 .dropdown-one {
     display: flex;
 }
+
 .one-center {
     text-align: center;
 }
@@ -812,11 +823,13 @@ input:disabled {
 .one-center-1 {
     font-size: 20px;
     padding: 12px 0px;
-    width:100%;
+    width: 100%;
 }
+
 .one-center-1:hover {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .dropdown-table-two {
     position: relative;
 }
@@ -842,7 +855,6 @@ input:disabled {
 }
 
 .dropdown-font-1 {
-
     font-size: 1.5em;
     margin-top: 20px;
     color: #000000;
@@ -918,47 +930,57 @@ input:disabled {
 .phone {
     margin-top: 10px;
 }
+
 .notification {
     position: relative;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 .notification-hover {
-    display:none;
-    border : 1px solid #000;
+    display: none;
+    border: 1px solid #000;
     width: 355px;
-    height:170px;
+    height: 170px;
     position: absolute;
-    background-color:white;
+    background-color: white;
     z-index: 100;
-    border:none;
-    right: 0px;  
-    border-radius : 25px;  
-    top:30px;
+    border: none;
+    right: 0px;
+    border-radius: 25px;
+    top: 30px;
 }
-.notification:hover> .notification-hover {
-  display:block;
+
+.notification:hover>.notification-hover {
+    display: block;
 }
-.notification:hover> .notification-hover>  p {
-  padding: 15px;
+
+.notification:hover>.notification-hover>p {
+    padding: 15px;
 }
+
 .social-network {
     cursor: pointer;
 }
+
 .fa-bell {
     margin-right: 5px;
 }
+
 .fa-question-circle {
     margin-right: 5px;
 }
-.user-space> a {
-    color:red;
-    text-decoration:none;
+
+.user-space>a {
+    color: red;
+    text-decoration: none;
 }
+
 .fa-shopping-cart {
     cursor: pointer;
 }
+
 .nav-body {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .triangle:before {
@@ -974,142 +996,157 @@ input:disabled {
     top: -12px;
     z-index: 100;
 }
+
 .fa-facebook {
-    background-color:white;
-    border-radius:25px;
+    background-color: white;
+    border-radius: 25px;
     color: blue;
-    border:0;
-
-
+    border: 0;
 }
+
 .fa-google {
-    background-color:red;
-    border-radius:25px;
+    background-color: red;
+    border-radius: 25px;
     font-size: x-large;
     padding: 5px;
-    color:white;
+    color: white;
 }
+
 .user-space-10>a:hover {
-   color:green!important;
+    color: green!important;
 }
+
 .dropdown-table:before {
-    content:"";
-    position:absolute;
-    bottom:200px;
-    left:10px;
+    content: "";
+    position: absolute;
+    bottom: 200px;
+    left: 10px;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-bottom: 13px solid #f1d4d4;
 }
+
 .one-center-1 {
-  border-top: 1px solid black;
+    border-top: 1px solid black;
 }
+
 .one-center-20 {
     padding-bottom: 15px;
 }
-.dropdown-table-two:before {
-    content:"";
-    position: absolute;
-    border-bottom:13px solid #f1d4d4;
-    border-left:20px solid transparent;
-    border-right: 20px solid transparent;
-    bottom:220px;
-    left: 155px;
 
+.dropdown-table-two:before {
+    content: "";
+    position: absolute;
+    border-bottom: 13px solid #f1d4d4;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    bottom: 220px;
+    left: 155px;
 }
+
 .dropdown-table-three {
     position: relative;
 }
+
 .dropdown-table-three:before {
-   content:"";  
-   position: absolute;
-   border-bottom:13px solid #f1d4d4;
-   border-left:20px solid transparent;
-   border-right: 20px solid transparent;
-   bottom:200px;
-   left: 80px;
+    content: "";
+    position: absolute;
+    border-bottom: 13px solid #f1d4d4;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    bottom: 200px;
+    left: 80px;
 }
+
 .one-center-30 {
     padding-bottom: 20px;
 }
+
 .dropdown:hover {
     color: green!important;
 }
-.fa-truck
-{
-    position: relative;
-    left:25px;
 
+.fa-truck {
+    position: relative;
+    left: 25px;
 }
-.one-center:hover
-{
-    color:green;
+
+.one-center:hover {
+    color: green;
 }
+
 .dropdown-four {
     position: relative;
     margin-top: -10px;
 }
-.dropdown-four-table
-{   
-   width:500px;
-   height:200px;
-   position: absolute;
-   z-index:200;
-   background-color:#F1D4D4;
-   border-radius:18px;
-   left:45px;
-   color:#000000;
-   display: none;
-   top: 30px;
-   box-shadow: 5px 5px 5px 5px #fff;
+
+.dropdown-four-table {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    z-index: 200;
+    background-color: #F1D4D4;
+    border-radius: 18px;
+    left: 45px;
+    color: #000000;
+    display: none;
+    top: 30px;
+    box-shadow: 5px 5px 5px 5px #fff;
 }
+
 .space:hover .dropdown-four-table {
-    display:block;
+    display: block;
 }
+
 .lienminh {
-    display:inline-block;
-    margin-top:20px;
-}    
-.lienminh-1 {
-    width:53%;
+    display: inline-block;
+    margin-top: 20px;
 }
+
+.lienminh-1 {
+    width: 53%;
+}
+
 .lienminh-2 {
     float: left;
     width: 46%;
 }
-.one-center-31 {
-    font-size:22px;
-}
-.dropdown-four-table:before 
-{
-    content:"";  
-    position: absolute;
-    border-bottom:13px solid #f1d4d4;
-    border-left:20px solid transparent;
-    border-right: 20px solid transparent;
-    bottom:198px;
-    left: 10px;
 
+.one-center-31 {
+    font-size: 22px;
 }
+
+.dropdown-four-table:before {
+    content: "";
+    position: absolute;
+    border-bottom: 13px solid #f1d4d4;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    bottom: 198px;
+    left: 10px;
+}
+
 .space {
     height: 88px;
 }
+
 .dropdown-1 {
-    height:87px;
+    height: 87px;
 }
+
 .two-center:hover {
-    color:green;
+    color: green;
     font-family: Arial, Helvetica, sans-serif;
 }
-.space:hover 
-{
-    color:green;
-}
-.inset:active {
 
+.space:hover {
+    color: green;
 }
+
+.inset:active {}
+
 .hidden {
     position: relative;
     left: 100px;
-    margin-top:10px;
+    margin-top: 10px;
 }

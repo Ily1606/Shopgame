@@ -37,9 +37,11 @@
                 </div>
             </div>
             <div class="search-information">
-                <input type="text" name="search" placeholder="Nhập sản phẩm tìm kiếm" class="header-input"> <!--   Tìm kiếm sản phẩm phần header   -->
-                <i class="fas fa-search"></i>
-                <i class="fas fa-shopping-cart"></i>
+                <form action="/search.php" method="GET">
+                    <input type="text" name="q" placeholder="Nhập sản phẩm tìm kiếm" value="<?php if(isset($_GET["q"])) echo htmlspecialchars($_GET["q"]); ?>" class="header-input"> <!--   Tìm kiếm sản phẩm phần header   -->
+                    <i class="fas fa-search"></i>
+                    <a href="/cart.php"><i class="fas fa-shopping-cart"></i><span class="text-danger"><?php if(isset($_SESSION["cart"])) echo count($_SESSION["cart"]); ?></span></a>
+                </form>
             </div>
         </div>
     </div>

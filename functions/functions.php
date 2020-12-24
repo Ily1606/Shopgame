@@ -1,9 +1,10 @@
 <?php
-function check_login(){
-    if(isset($_SESSION["id"]))
-    return true;
+function check_login()
+{
+    if (isset($_SESSION["id"]))
+        return true;
     else
-    return false;
+        return false;
 }
 function upload_image($ten_anh, $dir, $name_file, $type)
 {
@@ -85,4 +86,42 @@ function resizeImage($resourceType, $image_width, $image_height, $resizeWidth, $
     $imageLayer = imagecreatetruecolor($resizeWidth, $resizeHeight);
     imagecopyresampled($imageLayer, $resourceType, 0, 0, 0, 0, $resizeWidth, $resizeHeight, $image_width, $image_height);
     return $imageLayer;
+}
+function breadcrumb($row)
+{
+    global $conn;
+    $id_game = $row["type_game"];
+    $id_type = $row["type"];
+    $res_game =  mysqli_query($conn, "SELECT * FROM table_games WHERE id = $id_game");
+    $res_type = mysqli_query($conn, "SELECT * FROM table_types WHERE id =$id_type");
+    $row_game = mysqli_fetch_assoc($res_game);
+    $row_type = mysqli_fetch_assoc($res_type);
+    $html = '<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+      <li class="breadcrumb-item"><a href="/games.php?id=' . $row_game["id"] . '">' . $row_game["name"] . '</a></li>
+      <li class="breadcrumb-item"><a href="/types.php?id=' . $row_type["id"] . '">' . $row_type["name"] . '</a></li>
+      <li class="breadcrumb-item active" aria-current="page">' . $row["name"] . '</li>
+    </ol>
+  </nav>';
+    return $html;
+}
+function render_vote($vote)
+{
+    $html = '<div class="d-flex star_rate">';
+    $array = array('<i class="far fa-star"></i>', '<i class="far fa-star"></i>', '<i class="far fa-star"></i>', '<i class="far fa-star"></i>', '<i class="far fa-star"></i>');
+    for ($i = 0; $i < $vote; $i += 1) {
+        if ($i % 1 == 0) {
+            if ($i <= $vote - 1) {
+                $array[$i] = '<i class="fas fa-star"></i>';
+            } else {
+                $array[$i] = '<i class="fas fa-star-half-alt"></i>';
+            }
+        }
+    }
+    for ($i = 0; $i < count($array); $i++) {
+        $html .= $array[$i];
+    }
+    $html .= '</div>';
+    return $html;
 }

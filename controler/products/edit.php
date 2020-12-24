@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     $$key = mysqli_real_escape_string($conn, htmlspecialchars($value));
 }
-$data_required = array("name", "des", "money", "soluong", "game_types","type", "from_sale", "end_sale", "money_sale", "poster", "banner");
+$data_required = array("name", "des", "money", "soluong", "game_types", "type", "from_sale", "end_sale", "money_sale", "poster", "banner", "product_id");
 foreach ($data_required as $value) {
     if (!isset($_POST[$value])) {
         echo json_encode(array("status" => false, "message" => "Vui lòng điền đầy đủ thông tin!"));
@@ -31,8 +31,18 @@ if ($enable_sale == 1) {
         die;
     }
 }
-if (mysqli_query($conn, "INSERT INTO table_product (`name`,`descryption`,`money`,`soluong`,`user_id`,`type_game`,`poster`,`banner`,`from_sale`,`end_sale`,`money_sale`,`enable_sale`,`type`) VALUES ('$name','$des','$money','$soluong','$id','$game_types','$poster','$banner','$from_sale','$end_sale','$money_sale','$enable_sale','$type')")) {
-    echo json_encode(array("status" => true, "message" => "Thêm sản phẩm thành công!"));
+if (mysqli_query($conn, "UPDATE table_product SET `name` = '$name',`descryption` = '$des',`money` = '$money',`soluong` = '$soluong',`type_game` = '$game_types',`from_sale` = '$from_sale',`end_sale` = '$end_sale',`money_sale` = '$money_sale',`enable_sale` = '$enable_sale',`type` = '$type' WHERE id = $product_id AND user_id = $id")) {
+    $poster = json_decode($poster);
+    $banner = json_decode($banner);
+    if(count($poster) > 0){
+        $poster = json_encode($poster);
+        mysqli_query($conn, "UPDATE table_product SET `poster` = '$poster' WHERE id = $product_id AND user_id = $id");
+    }
+    if(count($banner) > 0){
+        $banner = json_encode($banner);
+        mysqli_query($conn, "UPDATE table_product SET `banner` = '$banner' WHERE id = $product_id AND user_id = $id");
+    }
+    echo json_encode(array("status" => true, "message" => "Chỉnh sửa sản phẩm thành công!"));
     die;
 } else {
     echo json_encode(array("status" => false, "message" => "Có lỗi khi thêm sản phẩm!"));

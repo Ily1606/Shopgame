@@ -9,6 +9,7 @@ $data = array();
 $data["data"] = array();
 while ($row = mysqli_fetch_array($res)) {
     $data_min = array();
+    $data_min["id"] = $row["id"];
     $data_min["name"] = $row["name"];
     $data_min["descryption"] = $row["descryption"];
     $data_min["user_id"] = $row["user_id"];

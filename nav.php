@@ -2,7 +2,7 @@
         <div class="nav-main">
 
             <span class="dropdown"><i class="fas fa-home nav-font-size"></i>
-                <div class="nav-bottom">Home</div>  
+                <a href="/"><div class="nav-bottom">Home</div></a>
                 <div class="dropdown-table">
                     <div class="dropdown-one">
                         <div class="dropdown-font">
