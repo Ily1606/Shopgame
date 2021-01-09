@@ -8,6 +8,10 @@ if ($check_login) {
     $id = $_SESSION["id"];
     $account = new Profile($id);
     $username = $account->get_username();
+    if($account->get_status() == 0){
+        header("Location: /404.php");
+        die;
+    }
 }
 ?>
 <DOCTYPE html></DOCTYPE>
@@ -90,8 +94,8 @@ if ($check_login) {
                         </div>
                         <div class="word-information d-flex">
                             <div class="progress">
-                                <div class="progress_bar" style="width: <?php echo ceil($row["selled"]/$row["soluong"]); ?>"></div>
-                                <div class="text_progess">Đã bán: <?php echo ceil($row["selled"]/$row["soluong"]); ?></div>
+                                <div class="progress_bar" style="width: <?php echo ceil($row["selled"]/$row["soluong"]*100); ?>%"></div>
+                                <div class="text_progess">Đã bán: <?php echo $row["selled"]; ?></div>
                             </div>
                         </div>
                         <div class="d-flex star_rate">

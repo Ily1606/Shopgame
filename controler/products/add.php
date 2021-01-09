@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     $$key = mysqli_real_escape_string($conn, htmlspecialchars($value));
 }
-$data_required = array("name", "des", "money", "soluong", "game_types","type", "from_sale", "end_sale", "money_sale", "poster", "banner");
+$data_required = array("name", "des", "money", "soluong", "game_types","type", "from_sale", "end_sale", "money_sale", "poster", "banner","money_ship");
 foreach ($data_required as $value) {
     if (!isset($_POST[$value])) {
         echo json_encode(array("status" => false, "message" => "Vui lòng điền đầy đủ thông tin!"));
@@ -11,6 +11,10 @@ foreach ($data_required as $value) {
 }
 if (!isset($_POST["enable_sale"])) {
     $enable_sale = 0;
+}
+if (!isset($_POST["enable_ship"])) {
+    $enable_ship = 0;
+    $money_ship = 0;
 }
 if ($enable_sale == 1) {
     $from_sale = new DateTime($from_sale);
@@ -31,7 +35,7 @@ if ($enable_sale == 1) {
         die;
     }
 }
-if (mysqli_query($conn, "INSERT INTO table_product (`name`,`descryption`,`money`,`soluong`,`user_id`,`type_game`,`poster`,`banner`,`from_sale`,`end_sale`,`money_sale`,`enable_sale`,`type`) VALUES ('$name','$des','$money','$soluong','$id','$game_types','$poster','$banner','$from_sale','$end_sale','$money_sale','$enable_sale','$type')")) {
+if (mysqli_query($conn, "INSERT INTO table_product (`name`,`descryption`,`money`,`soluong`,`user_id`,`type_game`,`poster`,`banner`,`from_sale`,`end_sale`,`money_sale`,`enable_sale`,`type`,`enable_ship`,`money_ship`) VALUES ('$name','$des','$money','$soluong','$id','$game_types','$poster','$banner','$from_sale','$end_sale','$money_sale','$enable_sale','$type',$enable_ship,$money_ship)")) {
     echo json_encode(array("status" => true, "message" => "Thêm sản phẩm thành công!"));
     die;
 } else {

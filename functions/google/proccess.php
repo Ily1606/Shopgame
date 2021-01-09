@@ -26,7 +26,7 @@ if (isset($data["email"])) {
         die;
     } else {
         $password = "Login_with_socical";
-        if (mysqli_query($conn, "INSERT INTO table_accounts (`passwords`,`email`,`first_name`,`last_name`) VALUES ('$password','$email','$first_name','$last_name')")) {
+        if (mysqli_query($conn, "INSERT INTO table_accounts (`username`,`passwords`,`email`,`first_name`,`last_name`) VALUES ('$email','$password','$email','$first_name','$last_name')")) {
             $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE email = '$email'");
             $row = mysqli_fetch_assoc($res);
             $_SESSION["username"] = $row["username"];

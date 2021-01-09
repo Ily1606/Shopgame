@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     $$key = mysqli_real_escape_string($conn, htmlspecialchars($value));
 }
-$data_required = array("name", "des", "money", "soluong", "game_types", "type", "from_sale", "end_sale", "money_sale", "poster", "banner", "product_id");
+$data_required = array("name", "des", "money", "soluong", "game_types", "type", "from_sale", "end_sale", "money_sale", "poster", "banner", "product_id","money_ship");
 foreach ($data_required as $value) {
     if (!isset($_POST[$value])) {
         echo json_encode(array("status" => false, "message" => "Vui lòng điền đầy đủ thông tin!"));
@@ -11,6 +11,9 @@ foreach ($data_required as $value) {
 }
 if (!isset($_POST["enable_sale"])) {
     $enable_sale = 0;
+}
+if (!isset($_POST["enable_ship"])) {
+    $enable_ship = 0;
 }
 if ($enable_sale == 1) {
     $from_sale = new DateTime($from_sale);
@@ -31,14 +34,14 @@ if ($enable_sale == 1) {
         die;
     }
 }
-if (mysqli_query($conn, "UPDATE table_product SET `name` = '$name',`descryption` = '$des',`money` = '$money',`soluong` = '$soluong',`type_game` = '$game_types',`from_sale` = '$from_sale',`end_sale` = '$end_sale',`money_sale` = '$money_sale',`enable_sale` = '$enable_sale',`type` = '$type' WHERE id = $product_id AND user_id = $id")) {
+if (mysqli_query($conn, "UPDATE table_product SET `name` = '$name',`descryption` = '$des',`money` = '$money',`soluong` = '$soluong',`type_game` = '$game_types',`from_sale` = '$from_sale',`end_sale` = '$end_sale',`money_sale` = '$money_sale',`enable_sale` = '$enable_sale',`type` = '$type',`enable_ship` = '$enable_ship',`money_ship` ='$money_ship' WHERE id = $product_id AND user_id = $id")) {
     $poster = json_decode($poster);
     $banner = json_decode($banner);
-    if(count($poster) > 0){
+    if (count($poster) > 0) {
         $poster = json_encode($poster);
         mysqli_query($conn, "UPDATE table_product SET `poster` = '$poster' WHERE id = $product_id AND user_id = $id");
     }
-    if(count($banner) > 0){
+    if (count($banner) > 0) {
         $banner = json_encode($banner);
         mysqli_query($conn, "UPDATE table_product SET `banner` = '$banner' WHERE id = $product_id AND user_id = $id");
     }

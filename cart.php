@@ -102,6 +102,7 @@ if ($check_login) {
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-danger delete">Xoá</button>
+                                    <button class="btn btn-success add">Thanh toán</button>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +132,59 @@ if ($check_login) {
                     },
                     error: function() {
                         toastr.error("Có lỗi khi xóa sản phẩm khỏi giỏ hàng!");
+                    }
+                })
+            });
+            $(".add").click(function() {
+                var product_id = $(this).parents(".item").attr("for_id");
+                $.ajax({
+                    url: "/controler/biller/biller.php?action=add",
+                    method: "POST",
+                    data: "id_product=" + product_id + "&soluong=" + $(this).parents(".item").find('.soluong').val(),
+                    success: function(e) {
+                        e = JSON.parse(e);
+                        if (e.status) {
+                            toastr.success(e.message);
+                            setTimeout(function() {
+                                window.location.href = "/biller/biller.php?id=" + e.id_biller;
+                            }, 2000);
+                        } else {
+                            if (e.html) {
+                                $("body").append(e.html);
+                            } else {
+                                toastr.error(e.message);
+                            }
+                        }
+                    },
+                    error: function() {
+                        toastr.error("Có lỗi khi tạo mã thanh toán!");
+                    }
+                })
+            });
+            $("body").on("click", "#save", function() {
+                var product_id = $(this).parents("#order_address").attr("for_id");
+                var soluong = $(this).parents("#order_address").attr("for_soluong");
+                $.ajax({
+                    url: "/controler/biller/biller.php?action=add",
+                    method: "POST",
+                    data: "id_product=" + product_id + "&soluong=" + soluong + "&address=" + $("#address").val()+"&number_phone="+$("#number_phone").val(),
+                    success: function(e) {
+                        e = JSON.parse(e);
+                        if (e.status) {
+                            toastr.success(e.message);
+                            setTimeout(function() {
+                                window.location.href = "/biller/biller.php?id=" + e.id_biller;
+                            }, 2000);
+                        } else {
+                            if (e.html) {
+                                $("body").append(e.html);
+                            } else {
+                                toastr.error(e.message);
+                            }
+                        }
+                    },
+                    error: function() {
+                        toastr.error("Có lỗi khi tạo mã thanh toán!");
                     }
                 })
             });

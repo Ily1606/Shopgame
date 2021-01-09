@@ -22,6 +22,16 @@ class Profile
         $row = $this->res;
         return $row["first_name"] . " " . $row["last_name"];
     }
+    public function get_fỉrstname()
+    {
+        $row = $this->res;
+        return $row["first_name"];
+    }
+    public function get_lastname()
+    {
+        $row = $this->res;
+        return $row["last_name"];
+    }
     public function get_avatar()
     {
         $row = $this->res;

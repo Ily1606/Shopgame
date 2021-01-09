@@ -19,6 +19,7 @@ if (mysqli_num_rows($res)) {
     $row_game = mysqli_fetch_assoc($res);
     $data_banner = json_decode($row_game["banner"], true);
     $money = number_format($row_game["money"]) . " VND";
+    $money_ship = number_format($row_game["money_ship"]) . " VND";
     if (count($data_banner) > 0) {
         $data_banner = $data_banner[0];
         $banner = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_banner");
@@ -84,7 +85,12 @@ if (mysqli_num_rows($res)) {
                                 </div>
                             </div>
                             <div class="d-block">
-                                <p class="text-warning h4"><?php echo $money ?></p>
+                                <div class="d-inline-block">
+                                    <p class="text-warning h4 mr-3"><?php echo $money ?></p>
+                                </div>
+                                <div class="d-inline-block border-left pl-3">
+                                    <p class="mb-0">Phí vận chuyển: <b class="text-success"><?php echo $money_ship ?></b></p>
+                                </div>
                             </div>
                             <div class="d-block">
                                 <div class="form-group">
@@ -95,13 +101,22 @@ if (mysqli_num_rows($res)) {
                                         <input type="number" min="1" id="soluong" max="<?php echo $row_game["soluong"]; ?>" value="1" class="form-control" required>
                                     </div>
                                     <div class="d-inline-block text-muted ml-2">
-                                        <small><?php echo $row_game["soluong"]; ?> sản phẩm có sẵn</small>
+                                        <small><?php echo $row_game["soluong"] -  $row_game["selled"]; ?> sản phẩm có sẵn</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-block">
+                                <p>Hình thức thanh toán</p>
+                                <p><small><i class="fas fa-money-check-alt text-success mr-2"></i>Thanh toán trực tuyến (do shopgame làm trung gian)</small></p>
+                                <?php if ($row_game["enable_ship"]) { ?><p><small><i class="fas fa-shipping-fast text-success mr-2"></i>Thanh toán khi nhận hàng</small></p><?php } ?>
+                            </div>
+                            <div class="d-block">
                                 <div class="d-inline-block">
-                                    <button class="btn btn-primary add_to_cart"><i class="fas fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                                    <?php if ($row_game["soluong"] -  $row_game["selled"]) { ?>
+                                        <button class="btn btn-primary add_to_cart"><i class="fas fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                                    <?php } else { ?>
+                                        <button class="btn btn-secondary" disabled><i class="fas fa-shopping-cart"></i>Đã hết hàng</button>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="d-block mt-4">
@@ -112,7 +127,7 @@ if (mysqli_num_rows($res)) {
                                 <div class="d-inline-block align-middle ml-3">
                                     <div><?php echo $info_shop->get_fullname(); ?></div>
                                     <div><?php echo $info_shop->get_email(); ?></div>
-                                    <a href="/profile.php?id=<?php echo $info_shop->get_id(); ?>" class="text-success">Xem trang cá nhân</a>
+                                    <a href="/profile/profile.php?id=<?php echo $info_shop->get_id(); ?>" class="text-success">Xem trang cá nhân</a>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +171,25 @@ if (mysqli_num_rows($res)) {
                         toastr.error("Có lỗi khi thêm sản phẩm vào giỏ hàng!");
                     }
                 })
-            })
+            });
+            $(".star_rate").on("click", "i", function() {
+                $.ajax({
+                    url: "/controler/rate.php",
+                    method: "POST",
+                    data: "rate=" + $(this).attr("for_stats") + "&product_id=" + $("#product_id").val(),
+                    success: function(e) {
+                        e = JSON.parse(e);
+                        if (e.status) {
+                            toastr.success(e.msg);
+                            setTimeout(function(){
+                                window.location.reload();
+                            },2000);
+                        } else {
+                            toastr.error(e.msg);
+                        }
+                    }
+                })
+            });
         });
     </script>
 </body>

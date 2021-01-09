@@ -41,7 +41,27 @@ if (mysqli_num_rows($res)) {
     <div class="container mt-4">
         <div class="card cover_page">
             <div class="card-body">
-                <div class="card-title h3 mb-2">Chỉnh sửa sản phẩm</div>
+                <div class="card-title h3 mb-2">Chỉnh sửa sản phẩm
+                    <div id="list_picture">
+                        <?php
+                        $poster = json_decode($row_game["poster"], true);
+                        $banner = json_decode($row_game["banner"], true);
+                        foreach ($poster as $value) {
+                            $url_file = "/controler/media/picture.php?id=$value";
+                        ?>
+                            <div class="item_list_picture" for_id="<?php echo $value; ?>" for_target="poster"><img src="<?php echo $url_file ?>">
+                                <div class="delete_item_pictue">x</div>
+                            </div>
+                        <?php }
+                        foreach ($banner as $value) {
+                            $url_file = "/controler/media/picture.php?id=$value";
+                        ?>
+                            <div class="item_list_picture" for_id="<?php echo $value; ?>" for_target="banner"><img src="<?php echo $url_file ?>">
+                                <div class="delete_item_pictue">x</div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -62,6 +82,18 @@ if (mysqli_num_rows($res)) {
                                 <div class="form-group">
                                     <label for="number">Giá tiền</label>
                                     <input type="number" name="money" id="money" value="<?php echo $row_game["money"]; ?>" class="form-control" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox inlineblock m-r-20">
+                                        <input type="checkbox" name="enable_ship" id="enable_ship" class="with-gap" value="1" <?php echo ($row_game["enable_ship"] == 1 ? "checked" : ""); ?>>
+                                        <label for="enable_ship">Thanh toán khi nhận hàng</label>
+                                    </div>
+                                </div>
+                                <div class="moddle_ship">
+                                    <div class="form-group">
+                                        <label for="money_ship">Phí vận chuyển</label>
+                                        <input type="number" name="money_ship" id="money_ship" class="form-control" min="0" value="<?php echo $row_game["money_ship"] ?>">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="list_game">Danh mục game</label>
@@ -96,8 +128,8 @@ if (mysqli_num_rows($res)) {
                                         <input type="number" name="money_sale" id="money_sale" class="form-control" min="0" max="100" value="<?php echo $row_game["money_sale"]; ?>">%
                                     </div>
                                 </div>
-                                <input type="hidden" name="poster" value="[]" id="poster">
-                                <input type="hidden" name="banner" value="[]" id="banner">
+                                <input type="hidden" name="poster" value="<?php echo $row_game["poster"]; ?>" id="poster">
+                                <input type="hidden" name="banner" value="<?php echo $row_game["banner"]; ?>" id="banner">
                                 <div class="form-group">
                                     <button class="btn btn-success submit_form">Đăng lên</button>
                                 </div>
@@ -164,16 +196,28 @@ if (mysqli_num_rows($res)) {
         })
 
         function check_change() {
-            if ($(this).is(":checked")) {
+            if ($("#enable_sale").is(":checked")) {
                 $(".moddle_sale").fadeIn()
             } else {
                 $(".moddle_sale").fadeOut()
+            }
+        }
+
+        function check_change_ship() {
+            if ($("#enable_ship").is(":checked")) {
+                $(".moddle_ship").fadeIn()
+            } else {
+                $(".moddle_ship").fadeOut()
             }
         }
         $("#enable_sale").change(function() {
             check_change();
         });
         check_change();
+        $("#enable_ship").change(function() {
+            check_change_ship();
+        });
+        check_change_ship();
 
         function render_list_product(item) {
             $("#product_list").append('<div class="col-lg-3 col-sm-6 mt-2"><a class="col-sm-12 product_item d-block" href="/item.php?id=' + item.id + '"><img src="' + item.poster[0] + '"><div class="info_item"><div class="name_item">' + item.name + '</div><div class="des_item"><div class="float-left">' + item.money + '</div><div class="float-right">Đã bán: ' + item.selled + '</div></div></div></a></div>');
@@ -195,12 +239,30 @@ if (mysqli_num_rows($res)) {
                 toastr.error("Có lỗi khi tải sản phẩm của người dùng!");
             }
         })
+        $("#list_picture").on("click", ".item_list_picture", function() {
+            $(this).remove();
+            input_target = $("#" + $(this).attr("for_target"));
+            for_id = $(this).attr("for_id");
+            var data = JSON.parse(input_target.val());
+            for (let $i = 0; $i < data.length; i++) {
+                if (for_id == data[$i]) {
+                    if (data.length > 1)
+                        data = data.splice($i, 1);
+                    else
+                        data = [];
+                    input_target.val(JSON.stringify(data));
+                    break;
+                }
+            }
+        });
         $("#input-file-poster, #input-file-banner").change(function() {
             var blob_file = URL.createObjectURL($(this)[0].files[0]);
+            /*
             $(this).parent().find(".image_preview").html('<img src="' + blob_file + '" width="100%" height="100%">');
             $(this).parent().parent().find('.progress-bar').css({
                 "width": "80%"
             });
+            */
             $_this = $(this);
             var formData = new FormData();
             formData.append('file', $(this)[0].files[0]);
@@ -215,6 +277,7 @@ if (mysqli_num_rows($res)) {
                     $_this.parent().parent().find('.progress-bar').css({
                         "width": "100%"
                     }).addClass("bg-success");
+                    $("#list_picture").append('<div class="item_list_picture" for_id="' + e[0] + '" for_target="' + $_this.attr("for_id") + '"><img src="' + blob_file + '"><div class="delete_item_pictue">x</div></div>');
                     input_target = $("#" + $_this.attr("for_id"));
                     var data = JSON.parse(input_target.val());
                     data = data.concat(e)
@@ -225,13 +288,6 @@ if (mysqli_num_rows($res)) {
                     toastr.error("Có lỗi khi upload ảnh!");
                 }
             });
-        });
-        $("#enable_sale").change(function() {
-            if ($(this).is(":checked")) {
-                $(".moddle_sale").fadeIn()
-            } else {
-                $(".moddle_sale").fadeOut()
-            }
         });
         $('#select-games').selectize({
             theme: 'repositories',

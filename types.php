@@ -53,7 +53,7 @@ if (mysqli_num_rows($res)) {
                                 $poster = mysqli_fetch_assoc($poster);
                         ?>
                                 <div class="col-lg-3 col-sm-6 mt-2">
-                                    <a class="col-sm-12 product_item" href="/item.php?id=<?php echo $row["id"]; ?>">
+                                    <a class="col-sm-12 product_item d-block" href="/item.php?id=<?php echo $row["id"]; ?>">
                                         <img src="<?php echo $poster["url_file"] ?>">
                                         <div class="info_item">
                                             <div class="name_item"><?php echo $row["name"]; ?></div>

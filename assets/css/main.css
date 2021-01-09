@@ -1,9 +1,11 @@
 body {
     background-color: #f0f0f0;
 }
-a{
+
+a {
     color: inherit!important;
 }
+
 .cover_page {
     width: 100%;
     background: #FFFFFF;
@@ -75,4 +77,51 @@ a{
     height: 3rem;
     overflow: hidden;
     line-height: 1.5rem;
+}
+
+#list_picture {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+#list_picture img {
+    width: 40px;
+}
+
+.item_list_picture {
+    position: relative;
+    width: max-content;
+    display: inline-block;
+}
+
+.delete_item_pictue {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    background: #BDBDBD;
+    border-radius: 4px;
+}
+
+.part_border {
+    border-bottom: 1px solid #BDBDBD;
+    padding: 10px 0px;
+}
+
+.part_border>div {
+    padding: 0px;
+}
+
+.ribbon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 10px;
+    background: red;
+    color: #BDBDBD;
+    padding: 0px 10px;
 }

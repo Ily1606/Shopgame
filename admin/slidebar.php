@@ -46,6 +46,9 @@
                 </ul>
             </li>
             <li>
+                <a href="/admin/biller/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Danh sách đơn hàng</span></a>
+            </li>
+            <li>
                 <a href="/admin/system/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Hệ thống</span></a>
             </li>
             <li>

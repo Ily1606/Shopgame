@@ -57,7 +57,7 @@ if (isset($data["email"])) {
             $gender = 1;
         else
             $gender = 2;
-        if (mysqli_query($conn, "INSERT INTO table_accounts (`passwords`,`email`,`gender`,`first_name`,`last_name`) VALUES ('$password','$email','$gender','$first_name','$last_name')")) {
+        if (mysqli_query($conn, "INSERT INTO table_accounts (`username`,`passwords`,`email`,`gender`,`first_name`,`last_name`) VALUES ('$email','$password','$email','$gender','$first_name','$last_name')")) {
             $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE email = '$email'");
             $row = mysqli_fetch_assoc($res);
             $_SESSION["username"] = $row["username"];

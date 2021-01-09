@@ -19,7 +19,7 @@
                 <span class="user-space"> <i class="fas fa-question-circle"></i>Trợ giúp</span>
                 <?php if ($check_login) { ?>
                     <span class="user-space">|</span>
-                    <span class="user-space"><a href="/profile.php?id=<?php echo $id ?>"><?php echo $username; ?></a></span>
+                    <span class="user-space"><a href="/profile/profile.php?id=<?php echo $id ?>"><?php echo $username; ?></a></span>
                     <span class="user-space">|</span>
                     <span class="user-space"><a href="/logout.php">Đăng xuất</a></span>
                 <?php } else { ?>
