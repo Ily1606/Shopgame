@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["id"])){
+if (isset($_SESSION["id"])) {
     header("Location: /");
     die;
 }
@@ -66,6 +66,17 @@ if(isset($_SESSION["id"])){
                     <div class="copyright text-center">
                         <a href="/regsister.php">Đăng ký</a>
                     </div>
+                    <div class="form-group mt-3 text-center">
+                        Hoặc đăng nhập bằng tài khoản khác
+                    </div>
+                    <a class="form-group btn btn-primary col-12" href="/functions/facebook/index.php">
+                        <i class="fab fa-facebook mr-2"></i>
+                        <span>Đăng nhập bằng facebook</span>
+                    </a>
+                    <a class="form-group btn btn-danger col-12" href="/functions/google/index.php">
+                        <i class="fab fa-google mr-2"></i>
+                        <span>Đăng nhập bằng google</span>
+                    </a>
                 </div>
                 <div class="col-lg-8 col-sm-12">
                     <div class="card">

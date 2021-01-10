@@ -17,6 +17,14 @@ class Login
         else
             return false;
     }
+    public function check_exist_email($res = null)
+    {
+        $res = $this->res;
+        if (mysqli_num_rows($res))
+            return true;
+        else
+            return false;
+    }
     public function check_password_wrong($res)
     {
         if (mysqli_num_rows($res))
@@ -24,21 +32,23 @@ class Login
         else
             return false;
     }
-    public function login($res){
+    public function login($res)
+    {
         $row = mysqli_fetch_assoc($res);
         $_SESSION["username"] = $row["username"];
         $_SESSION["id"] = $row["id"];
     }
-    public function get_result(){
+    public function get_result()
+    {
         return $this->result;
     }
     public function process()
     {
         $result = [];
-        GLOBAL $conn;
-        $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE username = '$this->username'");
+        global $conn;
+        $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE username = '$this->username' OR email = '$this->username'");
         if ($this->check_exist_username($res)) {
-            $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE username = '$this->username' AND passwords = '$this->password'");
+            $res = mysqli_query($conn, "SELECT * FROM table_accounts WHERE (username = '$this->username' OR email = '$this->username') AND passwords = '$this->password'");
             if ($this->check_password_wrong($res)) {
                 $this->login($res);
                 $result["status"] = true;

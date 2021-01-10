@@ -1,7 +1,7 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="index.html"><img src="../assets/images/favicon.png" width="25" alt="Aero" /><span class="m-l-10">Shop game</span></a>
+        <a href="/"><img src="../assets/images/favicon.png" width="25" alt="Aero" /><span class="m-l-10">Shop game</span></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -44,6 +44,12 @@
                     <li><a href="list_add.php">Thêm thành viên</a></li>
                     <li><a href="list_edit.php">Sửa thành viên</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="/admin/biller/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Danh sách đơn hàng</span></a>
+            </li>
+            <li>
+                <a href="/admin/system/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Hệ thống</span></a>
             </li>
             <li>
                 <a href="/logout.php"><i class="zmdi zmdi-link"></i><span>Đăng xuất</span></a>

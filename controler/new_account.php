@@ -4,7 +4,7 @@ session_start();
 include_once("../_connect.php");
 if (isset($_GET["action"])) {
     if ($_GET["action"] == "regsister") {
-        $required_data = ["username", "password", "re_password", "captcha", "gender", "email"];
+        $required_data = ["username", "password", "re_password", "captcha", "gender", "email", "number_phone", "first_name", "last_name"];
         foreach ($required_data as $value) {
             if (!isset($_POST[$value])) {
                 $data["status"] = false;
@@ -13,7 +13,7 @@ if (isset($_GET["action"])) {
             } else $$value = mysqli_real_escape_string($conn, $_POST[$value]);
         }
         if ($captcha == $_SESSION["captcha"]) {
-            $regsister = new Regsiter($username, $password, $re_password, $gender, $email);
+            $regsister = new Regsiter($username, $password, $re_password, $gender, $email, $number_phone, $first_name, $last_name);
             $data = $regsister->process();
         } else {
             $data["status"] = false;
