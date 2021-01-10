@@ -2,13 +2,14 @@
 session_start();
 include_once("_connect.php");
 include_once("functions/Class.profile.php");
+include_once("functions/Class.product.php");
 include_once("functions/functions.php");
 $check_login = check_login();
 if ($check_login) {
     $id = $_SESSION["id"];
     $account = new Profile($id);
     $username = $account->get_username();
-    if($account->get_status() == 0){
+    if ($account->get_status() == 0) {
         header("Location: /404.php");
         die;
     }
@@ -56,28 +57,16 @@ if ($check_login) {
     <div class="body-main">
         <?php include("sliderbar.php"); ?>
         <div class="body-right">
-            <div class="sort">
-                <div class="sort-div">Sắp xếp theo</div>
-                <div class="sort-padding-top">
-                    <input type="text" placeholder="Phổ Biến" class="body-right-border body-right-border-3" disabled="disabled">
-                    <input type="text" placeholder="Mới Nhất" class="body-right-border" disabled="disabled">
-                    <input type="text" placeholder="Bán Chạy" class="body-right-border" disabled="disabled">
-                    <input type="text" placeholder="Trending" class="body-right-border" disabled="disabled">
-                    <input type="text" placeholder="Giá" class="body-right-border-2"><i class="fas fa-arrow-circle-down"></i>
-                    <div class="click-sort">Áp Dụng</div>
-                </div>
-            </div>
+            <h2>Sản phẩm sale</h2>
             <div class="flex-img">
                 <?php
-                $res = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
+                $res = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 AND enable_sale = 1 AND end_sale > " . time() . " ORDER BY create_time DESC LIMIT 0,10");
                 $array_banner = array();
                 while ($row = mysqli_fetch_array($res)) {
-                    $money = number_format($row["money"]) . " VND";
-                    $selled = $row["selled"];
-                    $data_poster = json_decode($row["poster"], true);
-                    $data_poster = $data_poster[0];
-                    $poster = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_poster");
-                    $poster = mysqli_fetch_assoc($poster);
+                    $product = new Product(null, $row);
+                    $money = number_format($product->get_money()) . " VND";
+                    $selled = $product->get_selled();
+                    $poster = $product->get_poster();
                     if (count($array_banner) < 5) {
                         $data_banner = json_decode($row["banner"], true);
                         if (count($data_banner) > 0) {
@@ -88,30 +77,89 @@ if ($check_login) {
                         }
                     }
                 ?>
-                    <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img-0"><img src="<?php echo $poster["url_file"] ?>" class="grenal-img">
+                    <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img">
+                        <img src="<?php echo $poster ?>" class="grenal-img">
                         <div class="informatiton">
-                            <p class="word-information"><?php echo $row["name"] ?></p>
+                            <p class="word-information"><?php echo $product->get_name(); ?></p>
                         </div>
                         <div class="word-information d-flex">
                             <div class="progress">
-                                <div class="progress_bar" style="width: <?php echo ceil($row["selled"]/$row["soluong"]*100); ?>%"></div>
-                                <div class="text_progess">Đã bán: <?php echo $row["selled"]; ?></div>
+                                <div class="progress_bar" style="width: <?php echo ceil($selled / $product->get_soluong() * 100); ?>%"></div>
+                                <div class="text_progess">Đã bán: <?php echo $selled; ?></div>
                             </div>
                         </div>
                         <div class="d-flex star_rate">
-                            <?php echo render_vote($row["stats"]) ?>
-                            <span style="margin-left: 20px;">(<?php echo $row["count_voted"] ?>)</span>
+                            <?php echo render_vote($product->get_stats()) ?>
+                            <span style="margin-left: 20px;">(<?php echo $product->get_count_voted(); ?>)</span>
                         </div>
                         <div class=" d-flex">
                             <div class="col-left">
                                 <div class="price">
-                                    <div class="font-size-p"><?php echo $money ?></div>
+                                    <div class="font-size-p"><?php echo number_format($product->get_current_money()); ?> VND</div>
                                 </div>
                             </div>
                             <div class="col-right">Đã bán:
                                 <?php echo $selled; ?>
                             </div>
                         </div>
+                        <?php if ($product->get_enable_sale() && $product->get_end_sale() > time()) { ?>
+                            <div class="sell_rounded">
+                                <?php echo $product->get_money_sale(); ?>%
+                            </div>
+                        <?php } ?>
+                    </a>
+                <?php } ?>
+            </div>
+            <h2>Sản phẩm mới</h2>
+            <div class="flex-img">
+                <?php
+                $res = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
+                $array_banner = array();
+                while ($row = mysqli_fetch_array($res)) {
+                    $product = new Product(null, $row);
+                    $money = number_format($product->get_money()) . " VND";
+                    $selled = $product->get_selled();
+                    $poster = $product->get_poster();
+                    if (count($array_banner) < 5) {
+                        $data_banner = json_decode($row["banner"], true);
+                        if (count($data_banner) > 0) {
+                            $data_banner = $data_banner[0];
+                            $banner = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_banner");
+                            $banner = mysqli_fetch_assoc($banner);
+                            array_push($array_banner, $banner["url_file"]);
+                        }
+                    }
+                ?>
+                    <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img">
+                        <img src="<?php echo $poster ?>" class="grenal-img">
+                        <div class="informatiton">
+                            <p class="word-information"><?php echo $product->get_name(); ?></p>
+                        </div>
+                        <div class="word-information d-flex">
+                            <div class="progress">
+                                <div class="progress_bar" style="width: <?php echo ceil($selled / $product->get_soluong() * 100); ?>%"></div>
+                                <div class="text_progess">Đã bán: <?php echo $selled; ?></div>
+                            </div>
+                        </div>
+                        <div class="d-flex star_rate">
+                            <?php echo render_vote($product->get_stats()) ?>
+                            <span style="margin-left: 20px;">(<?php echo $product->get_count_voted(); ?>)</span>
+                        </div>
+                        <div class=" d-flex">
+                            <div class="col-left">
+                                <div class="price">
+                                    <div class="font-size-p"><?php echo number_format($product->get_current_money()); ?> VND</div>
+                                </div>
+                            </div>
+                            <div class="col-right">Đã bán:
+                                <?php echo $selled; ?>
+                            </div>
+                        </div>
+                        <?php if ($product->get_enable_sale() && $product->get_end_sale() > time()) { ?>
+                            <div class="sell_rounded">
+                                <?php echo $product->get_money_sale(); ?>%
+                            </div>
+                        <?php } ?>
                     </a>
                 <?php } ?>
             </div>

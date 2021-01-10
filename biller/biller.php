@@ -72,14 +72,16 @@ if (mysqli_num_rows($res)) {
                             <div class="h6 text-success">Thông tin thêm</div>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Trạng thái đơn hàng:</div>
-                                <div class="col-6 text-danger"><?php if ($row["status"] == 1) echo "Đang xử lý";
-                                                    elseif ($row["status"] == 2) echo "Đang vận chuyển";
-                                                    elseif ($row["status"] == 3) echo "Đã nhận hàng";
-                                                    elseif ($row["status"] == 4) echo "Hàng lỗi - Đang đợi hoàn tiền";
-                                                    elseif ($row["status"] == 5) echo "Hàng lỗi - Đã hoàn tiền"; ?></div>
+                                <div class="col-6 text-danger"><?php
+                                                                if ($row["status"] == 0) echo "Đã hủy";
+                                                                elseif ($row["status"] == 1) echo "Đang xử lý";
+                                                                elseif ($row["status"] == 2) echo "Đang vận chuyển";
+                                                                elseif ($row["status"] == 3) echo "Đã nhận hàng";
+                                                                elseif ($row["status"] == 4) echo "Hàng lỗi - Đang đợi hoàn tiền";
+                                                                elseif ($row["status"] == 5) echo "Hàng lỗi - Đã hoàn tiền"; ?></div>
                                 <div class="col-6 font-weight-bold">Trạng thái thanh toán:</div>
                                 <div class="col-6 text-success"><?php if ($row["payed"] == 0) echo "Chưa thanh toán";
-                                                    elseif ($row["payed"] == 1) echo "Đã thanh toán"; ?></div>
+                                                                elseif ($row["payed"] == 1) echo "Đã thanh toán"; ?></div>
                                 <div class="col-6 font-weight-bold">Ngày đặt hàng:</div>
                                 <div class="col-6"><?php echo $row["create_time"]; ?></div>
                                 <div class="col-6 font-weight-bold">Địa chỉ nhận hàng:</div>
@@ -97,12 +99,42 @@ if (mysqli_num_rows($res)) {
                                 <div class="col-6">Nội dung: Shopgame biller <?php echo $row["id"]; ?></div>
                                 <div class="col-12">
                                     <p class="text-danger">
-                                        <?php if ($row["user_ower"] == $id && $row["payed"] == 1) echo 'Người dùng này đã thanh toán trực tuyến sản phẩm, nếu kiện hàng của bạn thanh toán online, vui lòng gửi sản phẩm đến email của người dùng. Nhấn <a href="#send_confirm" class="text-primary" id="send_confirm">vào đây</a> nếu bạn đã gửi kiện hàng';
-                                        elseif ($row["user_ower"] != $id && $row["payed"] == 1) echo 'Bạn đã thanh toán trực tuyến sản phẩm, nếu kiện hàng của bạn thanh toán trực tuyến. Vui lòng đợi email từ chủ Shop. Nhấn <a href="#send_confirm_done" class="text-primary" id="send_confirm_done">vào đây</a> nếu bạn đã nhận kiện hàng. Nhấn <a href="#send_confirm_error" class="text-primary" id="send_confirm_error">vào đây</a> nếu kiện hàng của bạn bị lỗi.' ?>
+                                        <?php if ($row["user_ower"] == $id && $row["payed"] == 1) echo 'Người dùng này đã thanh toán trực tuyến sản phẩm, nếu kiện hàng của bạn thanh toán online, vui lòng gửi sản phẩm đến email của người dùng.';
+                                        elseif ($row["user_ower"] != $id && $row["payed"] == 1) echo 'Bạn đã thanh toán trực tuyến sản phẩm, nếu kiện hàng của bạn thanh toán trực tuyến. Vui lòng đợi email từ chủ Shop. Nhấn <a href="#send_confirm_done" class="text-primary" id="send_confirm_done">vào đây</a> nếu bạn đã nhận kiện hàng.' ?>
                                     </p>
                                     <p class="text-success">
                                         Shopgame sẽ hoàn tiền cho người dùng, nếu chủ shop không gửi kiện hàng đến cho người dùng hoặc kiện hàng không hợp lệ.
                                     </p>
+                                    <form action="/controler/biller/order.php?action=confirm_send" method="POST" class="send_action">
+                                        <input type="hidden" name="biller_id" value="<?php echo $id_biller ?>">
+                                        <?php if ($account->get_role() != "admin") { ?>
+                                            <?php if ($row["user_ower"] == $row["user_id"]) { ?>
+                                                <select name="status" class="form-control">
+                                                    <?php if ($row["status"] == 1) { ?><option value="2">Đang vận chuyển</option>
+                                                    <?php } elseif ($row["status"] == 2) { ?>
+                                                        <option value="11">Đang xử lý</option>
+                                                    <?php } ?>
+                                                </select>
+                                            <?php } else { ?>
+                                                <select name="status" class="form-control">
+                                                    <?php if ($row["status"] == 1) { ?><option value="0">Hủy đơn hàng</option> <?php } else if ($row["status"] == 2) { ?>
+                                                        <option value="3">Đã nhận hàng</option>
+                                                        <option value="4">Hàng lỗi - Đang đợi hoàn tiền</option>
+                                                <?php }
+                                                                                                                        } ?>
+                                                </select>
+                                            <?php } else { ?>
+                                                <select name="status" class="form-control">
+                                                    <option value="0">Hủy đơn hàng</option>
+                                                    <option value="1">Đang xử lý</option>
+                                                    <option value="2">Đang vận chuyển</option>
+                                                    <option value="3">Đã nhận hàng</option>
+                                                    <option value="4">Hàng lỗi - Đang đợi hoàn tiền</option>
+                                                    <option value="5">Hàng lỗi - Đã hoàn tiền</option>
+                                                </select>
+                                            <?php } ?>
+                                            <button class="btn btn-success">Lưu thay đổi</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -115,11 +147,11 @@ if (mysqli_num_rows($res)) {
 </body>
 <script>
     $(document).ready(function() {
-        $("#send_confirm").click(function() {
+        $(".send_action").submit(function() {
             $.ajax({
-                url: "/controler/biller/order.php?action=confirm_send",
-                method: "POST",
-                data: "status=2&biller_id=<?php echo $row["id"]; ?>",
+                url: $(this).attr("action"),
+                method: $(this).attr("method"),
+                data: $(this).serialize(),
                 success: function(e) {
                     e = JSON.parse(e);
                     if (e.status) {
@@ -135,50 +167,8 @@ if (mysqli_num_rows($res)) {
                     toastr.error("Có lỗi khi thực hiện hành động này!");
                 }
             })
+            return false;
         })
-        $("#send_confirm_done").click(function() {
-            $.ajax({
-                url: "/controler/biller/order.php?action=confirm_send",
-                method: "POST",
-                data: "status=3&biller_id=<?php echo $row["id"]; ?>",
-                success: function(e) {
-                    e = JSON.parse(e);
-                    if (e.status) {
-                        toastr.success(e.msg);
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 3000);
-                    } else {
-                        toastr.error(e.msg);
-                    }
-                },
-                error: function(e) {
-                    toastr.error("Có lỗi khi thực hiện hành động này!");
-                }
-            })
-        })
-        $("#send_confirm_error").click(function() {
-            $.ajax({
-                url: "/controler/biller/order.php?action=confirm_send",
-                method: "POST",
-                data: "status=4&biller_id=<?php echo $row["id"]; ?>",
-                success: function(e) {
-                    e = JSON.parse(e);
-                    if (e.status) {
-                        toastr.success(e.msg);
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 3000);
-                    } else {
-                        toastr.error(e.msg);
-                    }
-                },
-                error: function(e) {
-                    toastr.error("Có lỗi khi thực hiện hành động này!");
-                }
-            })
-        })
-
     });
 </script>
 

@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     $$key = mysqli_real_escape_string($conn, htmlspecialchars($value));
 }
-$data_required = array("name", "des", "money", "soluong", "game_types","type", "from_sale", "end_sale", "money_sale", "poster", "banner","money_ship");
+$data_required = array("name", "des", "money", "soluong", "game_types", "type", "from_sale", "end_sale", "money_sale", "poster", "banner", "money_ship");
 foreach ($data_required as $value) {
     if (!isset($_POST[$value])) {
         echo json_encode(array("status" => false, "message" => "Vui lòng điền đầy đủ thông tin!"));
@@ -17,11 +17,19 @@ if (!isset($_POST["enable_ship"])) {
     $money_ship = 0;
 }
 if ($enable_sale == 1) {
-    $from_sale = new DateTime($from_sale);
-    $from_sale = $from_sale->format('U');
-    $end_sale = new DateTime($end_sale);
-    $end_sale = $end_sale->format('U');
-    if ($from_sale >= $enable_sale) {
+    $from_sale = DateTime::createFromFormat('Y-m-d', $from_sale);
+    if ($from_sale === false) {
+        echo json_encode(array("status" => false, "message" => "Thời gian bắt đầu sale không hợp lệ!"));
+        die;
+    }
+    $from_sale = $from_sale->getTimestamp();
+    $end_sale = DateTime::createFromFormat('Y-m-d', $end_sale);
+    if ($end_sale === false) {
+        echo json_encode(array("status" => false, "message" => "Thời gian bắt đầu sale không hợp lệ!"));
+        die;
+    }
+    $end_sale = $end_sale->getTimestamp();
+    if ($from_sale < $enable_sale) {
         echo json_encode(array("status" => false, "message" => "Thời gian bắt đầu sale phải bắt đầu trước thời gian kết thúc sale!"));
         die;
     }

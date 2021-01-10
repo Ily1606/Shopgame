@@ -115,11 +115,11 @@ if (mysqli_num_rows($res)) {
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="from_sale">Áp dụng từ</label>
-                                                <input type="date" name="from_sale" class="form-control" id="from_sale" value="<?php echo $row_game["from_sale"]; ?>">
+                                                <input type="date" name="from_sale" class="form-control" id="from_sale" value="<?php echo date('Y-m-d', $row_game["from_sale"]); ?>">
                                             </div>
                                             <div class="col-6">
                                                 <label for="end_sale">Hết hạn vào</label>
-                                                <input type="date" name="end_sale" class="form-control" id="end_sale" value="<?php echo $row_game["end_sale"]; ?>">
+                                                <input type="date" name="end_sale" class="form-control" id="end_sale" value="<?php echo date('Y-m-d', $row_game["end_sale"]); ?>">
                                             </div>
                                         </div>
                                     </div>

@@ -2,34 +2,23 @@
 session_start();
 include_once("_connect.php");
 include("functions/Class.profile.php");
+include("functions/Class.product.php");
 include_once("functions/functions.php");
 if (!isset($_GET["id"])) {
     die;
 }
-$game_type = $_GET["id"];
+$product_id = mysqli_real_escape_string($conn, $_GET["id"]);
 $check_login = check_login();
 if ($check_login) {
     $id = $_SESSION["id"];
     $account = new Profile($id);
     $username = $account->get_username();
 }
-$res = mysqli_query($conn, "SELECT * FROM table_product WHERE id = $game_type AND `status` = 1");
-
-if (mysqli_num_rows($res)) {
-    $row_game = mysqli_fetch_assoc($res);
-    $data_banner = json_decode($row_game["banner"], true);
-    $money = number_format($row_game["money"]) . " VND";
-    $money_ship = number_format($row_game["money_ship"]) . " VND";
-    if (count($data_banner) > 0) {
-        $data_banner = $data_banner[0];
-        $banner = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_banner");
-        $banner = mysqli_fetch_assoc($banner);
-        $banner = $banner["url_file"];
-    } else {
-        $banner = "/assets/img/no-thumbnail.jpg";
-    }
-    $html = breadcrumb($row_game);
-    $info_shop = new Profile($row_game["user_id"]);
+$product = new Product($product_id);
+if ($product->num) {
+    $banner = $product->get_banner();
+    $html = breadcrumb($product->get_res());
+    $info_shop = new Profile($product->get_ower());
 } else {
     header("Location: /404.php");
     die;
@@ -40,7 +29,7 @@ if (mysqli_num_rows($res)) {
 
 <head>
     <meta charset="utf-8">
-    <title><?php echo $row_game["name"] ?></title>
+    <title><?php echo $product->get_name(); ?></title>
     <link rel="stylesheet" href="/css3/index.css">
     <?php include_once("header.php"); ?>
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -61,35 +50,44 @@ if (mysqli_num_rows($res)) {
                             <img src="<?php echo $banner ?>">
                         </div>
                         <div class="col-lg-6">
-                            <a href="/edit_item.php?id=<?php echo $game_type; ?>" class="btn btn-success float-right"><i class="far fa-edit"></i>Chỉnh sửa</a>
-                            <input type="hidden" id="product_id" value="<?php echo $game_type ?>">
-                            <div class="h5"><?php echo $row_game["name"] ?></div>
+                            <a href="/edit_item.php?id=<?php echo $product_id; ?>" class="btn btn-success float-right"><i class="far fa-edit"></i>Chỉnh sửa</a>
+                            <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
+                            <div class="h5"><?php echo $product->get_name(); ?></div>
                             <div class="d-block">
                                 <div class="d-inline-block pr-2 border-right align-middle">
                                     <div class="d-block">
-                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $row_game["stats"]; ?></div>
-                                        <div class="d-inline-block"><?php echo render_vote($row_game["stats"]); ?></div>
+                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $product->get_stats(); ?></div>
+                                        <div class="d-inline-block"><?php echo render_vote($product->get_stats()); ?></div>
                                     </div>
                                 </div>
                                 <div class="d-inline-block pl-2 align-middle pr-2 border-right">
                                     <div class="d-block">
-                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $row_game["count_voted"]; ?></div>
+                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $product->get_count_voted(); ?></div>
                                         <div class="d-inline-block">đánh giá</div>
                                     </div>
                                 </div>
                                 <div class="d-inline-block pl-2 align-middle">
                                     <div class="d-block">
-                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $row_game["selled"]; ?></div>
+                                        <div class="d-inline-block font-weight-bold text-danger pr-1"><?php echo $product->get_selled(); ?></div>
                                         <div class="d-inline-block">đã bán</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-block">
+                            <div class="d-block mb-2">
                                 <div class="d-inline-block">
-                                    <p class="text-warning h4 mr-3"><?php echo $money ?></p>
+                                    <p class="text-warning mr-3 mt-2 mb-2" style="font-size: 24px;"><?php echo number_format($product->get_current_money()); ?> VND</p>
+                                    <?php if ($product->get_enable_sale()) { ?>
+                                        <div class="text-danger">
+                                            <span style="text-decoration: line-through;"><?php echo number_format($product->get_money()); ?> VND</span>
+                                            <span class="mr-2 ml-2">|</span>
+                                            <span class="font-weight-bold">
+                                                <?php echo $product->get_countdown_endsale(); ?>
+                                            </span>
+                                        </div>
+                                    <?php } ?>
                                 </div>
-                                <div class="d-inline-block border-left pl-3">
-                                    <p class="mb-0">Phí vận chuyển: <b class="text-success"><?php echo $money_ship ?></b></p>
+                                <div class="d-inline-block border-left ml-3 pl-3">
+                                    <p class="mb-0">Phí vận chuyển: <b class="text-success"><?php echo number_format($product->get_money_ship()); ?> VND</b></p>
                                 </div>
                             </div>
                             <div class="d-block">
@@ -98,21 +96,21 @@ if (mysqli_num_rows($res)) {
                                         <label>Số lượng</label>
                                     </div>
                                     <div class="d-inline-block">
-                                        <input type="number" min="1" id="soluong" max="<?php echo $row_game["soluong"]; ?>" value="1" class="form-control" required>
+                                        <input type="number" min="1" id="soluong" max="<?php echo $product->get_soluong(); ?>" value="1" class="form-control" required>
                                     </div>
                                     <div class="d-inline-block text-muted ml-2">
-                                        <small><?php echo $row_game["soluong"] -  $row_game["selled"]; ?> sản phẩm có sẵn</small>
+                                        <small><?php echo $product->get_soluong() -  $product->get_selled(); ?> sản phẩm có sẵn</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-block">
                                 <p>Hình thức thanh toán</p>
                                 <p><small><i class="fas fa-money-check-alt text-success mr-2"></i>Thanh toán trực tuyến (do shopgame làm trung gian)</small></p>
-                                <?php if ($row_game["enable_ship"]) { ?><p><small><i class="fas fa-shipping-fast text-success mr-2"></i>Thanh toán khi nhận hàng</small></p><?php } ?>
+                                <?php if ($product->get_enable_ship()) { ?><p><small><i class="fas fa-shipping-fast text-success mr-2"></i>Thanh toán khi nhận hàng</small></p><?php } ?>
                             </div>
                             <div class="d-block">
                                 <div class="d-inline-block">
-                                    <?php if ($row_game["soluong"] -  $row_game["selled"]) { ?>
+                                    <?php if ($product->get_soluong() -  $product->get_selled()) { ?>
                                         <button class="btn btn-primary add_to_cart"><i class="fas fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
                                     <?php } else { ?>
                                         <button class="btn btn-secondary" disabled><i class="fas fa-shopping-cart"></i>Đã hết hàng</button>
@@ -141,7 +139,7 @@ if (mysqli_num_rows($res)) {
                     <div class="row m-2">
                         <div class="d-block mt-2">
                             <div>Mô tả: </div>
-                            <pre><?php echo $row_game["descryption"]; ?></pre>
+                            <pre><?php echo $product->get_descryption(); ?></pre>
                         </div>
                     </div>
                 </div>
@@ -181,9 +179,9 @@ if (mysqli_num_rows($res)) {
                         e = JSON.parse(e);
                         if (e.status) {
                             toastr.success(e.msg);
-                            setTimeout(function(){
+                            setTimeout(function() {
                                 window.location.reload();
-                            },2000);
+                            }, 2000);
                         } else {
                             toastr.error(e.msg);
                         }

@@ -25,22 +25,7 @@ include_once("_connect.php");
         ?>
             <a href="/types.php?id=<?php echo $row["id"] ?>" class="general-2"><?php echo $row["name"] ?></a>
         <?php } ?>
-
-
-        <div class="search-fortune">
-            <div class="tbody-left-border"></div>
-            <div class="general-1"> <i class="fab fa-phoenix-squadron"></i>Bộ Lọc Tìm Kiếm</div>
-        </div>
-
-        <div class="table-1">
-            <div class="word-size">Loại sản phẩm</div>
-            <?php
-            $res = mysqli_query($conn, "SELECT * FROM table_types ORDER BY create_time ASC LIMIT 0,10");
-            while ($row = mysqli_fetch_array($res)) {
-            ?>
-                <div class="general-3"><input type="radio" name="type" class="button-1" id="label-2"><label for="label-2"><?php echo $row["name"] ?></label></div>
-            <?php } ?>
-        </div>
+        <!--
         <div class="table-3">
             <div class="word-size">Khoảng giá</div>
             <div class="price-input">
@@ -55,7 +40,7 @@ include_once("_connect.php");
 
         <div class="table-4">
             <div class="word-size">Tình trạng sản phẩm</div>
-            <div class="general-3"><input type="radio" name="button-3" class="button-1" id="label-11"></input><label for="label-11">Sản phẩm mới</label></label></div> <!-- checkbox nơi bán -->
+            <div class="general-3"><input type="radio" name="button-3" class="button-1" id="label-11"></input><label for="label-11">Sản phẩm mới</label></label></div>
             <div class="general-3"><input type="radio" name="button-3" class="button-1" id="label-12"></input><label for="label-12">Sản phẩm cũ</label></div>
         </div>
         <div class="tbody-left-border"></div>
@@ -111,6 +96,7 @@ include_once("_connect.php");
         </div>
         <div class="tbody-left-border"></div>
         <div class="click-input">Mua Ngay</div>
+        -->
     </div>
 
 </div>
