@@ -1,4 +1,4 @@
-<div class="nav">
+<div class="nav-header">
     <div class="container">
         <div class="d-block">
             <div class="d-inline-block">

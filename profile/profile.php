@@ -30,6 +30,8 @@ if ($check_login) {
 </head>
 
 <body>
+    <?php include_once("../header_main.php"); ?>
+    <?php include_once("../nav.php") ?>
     <div class="container">
         <div class="row">
             <div class="card cover_page mt-2" style="height: 400px;">

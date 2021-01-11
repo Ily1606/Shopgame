@@ -24,7 +24,11 @@ if ($check_login) {
     <link rel="stylesheet" href="/css3/index.css">
     <link rel="shortcut icon" href="/assets/img/logo-72.png" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/assets/layerslider/css/layerslider.css">
     <script src="/assets/jquery/jquery.js"></script>
+    <script src="/assets/layerslider/js/greensock.js"></script>
+    <script src="/assets/layerslider/js/layerslider.transitions.js"></script>
+    <script src="/assets/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
 </head>
 
 <body>
@@ -34,26 +38,23 @@ if ($check_login) {
         <div class="image">
             <div class="main-img">
                 <div class="img-left">
-                    <div class="img-flex">
-                        <div class="back" onclick="myBack()"><i class="fas fa-arrow-left"></i></div>
-                        <div class="box-img"></div>
-                        <div class="next" onclick="myNext()"><i class="fas fa-arrow-right"></i></div>
-                        <div class="li-flex">
-                            <div class="border-li-1 border-li"></div>
-                            <div class="border-li"></div>
-                            <div class="border-li"></div>
-                            <div class="border-li"></div>
-                            <div class="border-li"></div>
+                    <div class="swiper-slide">
+                        <div class="container-general">
+                            <div class="gallery-wrap">
+                                <?php
+                                $i = 0;
+                                $res_product = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
+                                while ($row = mysqli_fetch_array($res_product)) {
+                                    if ($i > 4) break;
+                                    $i++;
+                                    $product = new Product(null, $row);
+                                    $banner = $product->get_banner(); ?>
+                                    <div class="item" style="background-image: url('<?php echo $banner ?>')" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></div>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="img-right">
-                    <img src="css3/image/games6.jpg" width="470px" ; height="200px">
-                    <img src="css3/image/games7.jpg" width="470px;" height="195px" style="margin-top:5px;">
-
-                </div>
-
-
             </div>
         </div>
         <div class="body-main">
@@ -63,21 +64,11 @@ if ($check_login) {
                 <div class="flex-img">
                     <?php
                     $res = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 AND enable_sale = 1 AND end_sale > " . time() . " ORDER BY create_time DESC LIMIT 0,10");
-                    $array_banner = array();
                     while ($row = mysqli_fetch_array($res)) {
                         $product = new Product(null, $row);
                         $money = number_format($product->get_money()) . " VND";
                         $selled = $product->get_selled();
                         $poster = $product->get_poster();
-                        if (count($array_banner) < 5) {
-                            $data_banner = json_decode($row["banner"], true);
-                            if (count($data_banner) > 0) {
-                                $data_banner = $data_banner[0];
-                                $banner = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_banner");
-                                $banner = mysqli_fetch_assoc($banner);
-                                array_push($array_banner, $banner["url_file"]);
-                            }
-                        }
                     ?>
                         <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img">
                             <img src="<?php echo $poster ?>" class="grenal-img">
@@ -115,22 +106,12 @@ if ($check_login) {
                 <h2>Sản phẩm mới</h2>
                 <div class="flex-img">
                     <?php
-                    $res = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
-                    $array_banner = array();
-                    while ($row = mysqli_fetch_array($res)) {
+                    $res_product = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
+                    while ($row = mysqli_fetch_array($res_product)) {
                         $product = new Product(null, $row);
                         $money = number_format($product->get_money()) . " VND";
                         $selled = $product->get_selled();
                         $poster = $product->get_poster();
-                        if (count($array_banner) < 5) {
-                            $data_banner = json_decode($row["banner"], true);
-                            if (count($data_banner) > 0) {
-                                $data_banner = $data_banner[0];
-                                $banner = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_banner");
-                                $banner = mysqli_fetch_assoc($banner);
-                                array_push($array_banner, $banner["url_file"]);
-                            }
-                        }
                     ?>
                         <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img">
                             <img src="<?php echo $poster ?>" class="grenal-img">
@@ -171,6 +152,7 @@ if ($check_login) {
     <?php include_once("footer.php") ?>
 </body>
 <script type="text/javascript">
+    /*
     function myFunction() {
         var khoi = document.querySelectorAll(".fixed");
         khoi[0].classList.add("move");
@@ -222,6 +204,14 @@ if ($check_login) {
         reload_dot(i);
         slider_poster.innerHTML = '<img src="' + image[i - 1] + '" width="700px" height="400px"/>';
     }
+    */
+    data = $("#layerslider").layerSlider({
+        skin: 'skin',
+        autoPlayVideos: false,
+        firstLayer: 'random',
+
+        skinsPath: '/assets/layerslider/css/'
+    });
 </script>
 
 </html>

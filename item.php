@@ -50,7 +50,11 @@ if ($product->num) {
                             <img src="<?php echo $banner ?>">
                         </div>
                         <div class="col-lg-6">
-                            <a href="/edit_item.php?id=<?php echo $product_id; ?>" class="btn btn-success float-right"><i class="far fa-edit"></i>Chỉnh sửa</a>
+                            <?php
+                            if ($account->get_id()  == $product->get_ower()) {
+                            ?>
+                                <a href="/edit_item.php?id=<?php echo $product_id; ?>" class="btn btn-success float-right"><i class="far fa-edit"></i>Chỉnh sửa</a>
+                            <?php } ?>
                             <input type="hidden" id="product_id" value="<?php echo $product_id ?>">
                             <div class="h5"><?php echo $product->get_name(); ?></div>
                             <div class="d-block">
