@@ -108,7 +108,7 @@ if (mysqli_num_rows($res)) {
                                     <form action="/controler/biller/order.php?action=confirm_send" method="POST" class="send_action">
                                         <input type="hidden" name="biller_id" value="<?php echo $id_biller ?>">
                                         <?php if ($account->get_role() != "admin") { ?>
-                                            <?php if ($row["user_ower"] == $row["user_id"]) { ?>
+                                            <?php if ($row["user_ower"] == $id) { ?>
                                                 <select name="status" class="form-control">
                                                     <?php if ($row["status"] == 1) { ?><option value="2">Đang vận chuyển</option>
                                                     <?php } elseif ($row["status"] == 2) { ?>

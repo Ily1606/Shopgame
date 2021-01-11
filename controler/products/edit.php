@@ -1,4 +1,5 @@
 <?php
+include_once($_SERVER["DOCUMENT_ROOT"] . "/functions/Class.product.php");
 foreach ($_POST as $key => $value) {
     $$key = mysqli_real_escape_string($conn, htmlspecialchars($value));
 }

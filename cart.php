@@ -2,6 +2,7 @@
 session_start();
 include_once("_connect.php");
 include_once("functions/Class.profile.php");
+include_once("functions/Class.product.php");
 include_once("functions/functions.php");
 $check_login = check_login();
 if ($check_login) {
@@ -72,19 +73,14 @@ if ($check_login) {
         if (count($cart_data) > 0) {
             foreach ($cart_data as $item) {
                 $product_id = $item["product_id"];
+                $product = new Product($product_id);
                 $soluong = $item["soluong"];
-                $res = mysqli_query($conn, "SELECT * FROM table_product WHERE id = $product_id");
-                $row = mysqli_fetch_assoc($res);
-                $data_poster = json_decode($row["poster"], true);
-                $data_poster = $data_poster[0];
-                $poster = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $data_poster");
-                $poster = mysqli_fetch_assoc($poster);
-                $poster = $poster["url_file"];
+                $poster = $product->get_poster();
         ?>
                 <div class="card item" for_id="<?php echo $product_id; ?>">
                     <div class="card-body">
                         <div class="card-title">
-                            <?php echo $row["name"]; ?>
+                            <?php echo $product->name; ?>
                         </div>
                         <div class="card-body">
                             <div class="d-flex">
@@ -92,13 +88,13 @@ if ($check_login) {
                                     <img src="<?php echo $poster; ?>" height="100px">
                                 </div>
                                 <div class="col">
-                                    <?php echo number_format($row["money"]) ?> VND
+                                    <?php echo number_format($product->get_current_money()) ?> VND
                                 </div>
                                 <div class="col">
                                     <input type="number" min="1" class="soluong" value="<?php echo $soluong; ?>" class="form-control" required>
                                 </div>
                                 <div class="col total_money">
-                                    <?php echo number_format($row["money"] * $soluong) ?> VND
+                                    <?php echo number_format($product->get_current_money() * $soluong) ?> VND
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-danger delete">Xoá</button>
@@ -167,7 +163,7 @@ if ($check_login) {
                 $.ajax({
                     url: "/controler/biller/biller.php?action=add",
                     method: "POST",
-                    data: "id_product=" + product_id + "&soluong=" + soluong + "&address=" + $("#address").val()+"&number_phone="+$("#number_phone").val(),
+                    data: "id_product=" + product_id + "&soluong=" + soluong + "&address=" + $("#address").val() + "&number_phone=" + $("#number_phone").val(),
                     success: function(e) {
                         e = JSON.parse(e);
                         if (e.status) {

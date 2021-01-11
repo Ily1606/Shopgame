@@ -16,7 +16,7 @@ if (check_login()) {
                 if (mysqli_num_rows($res_biller)) {
                     $row_biller = mysqli_fetch_assoc($res_biller);
                     if ($status == 0) {
-                        if ($account->get_role() == "admin" || ($row_biller["status"] == 1 && $row_biller["user_ower"] != $row_biller["user_id"])) {
+                        if ($account->get_role() == "admin" || ($row_biller["status"] == 1 && $row_biller["user_ower"] != $account->get_id() && $row_biller["user_id"] == $account->get_id())) {
                             if (mysqli_query($conn, "UPDATE table_biller SET `status` = 0 WHERE id = $biller_id")) {
                                 echo json_encode(array("status" => true, "msg" => "Thay đổi trạng thái đơn hàng thành công!"));
                             } else {
@@ -24,7 +24,7 @@ if (check_login()) {
                             }
                         }
                     } elseif ($status == 1) {
-                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] == $row_biller["user_id"])) {
+                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] == $account->get_id())) {
                             if (mysqli_query($conn, "UPDATE table_biller SET `status` = 1 WHERE id = $biller_id")) {
                                 echo json_encode(array("status" => true, "msg" => "Thay đổi trạng thái đơn hàng thành công!"));
                             } else {
@@ -32,7 +32,7 @@ if (check_login()) {
                             }
                         }
                     } elseif ($status == 2) {
-                        if ($account->get_role() == "admin" || ($row_biller["status"] == 1 && $row_biller["user_ower"] == $row_biller["user_id"])) {
+                        if ($account->get_role() == "admin" || ($row_biller["status"] == 1 && $row_biller["user_ower"] == $account->get_id())) {
                             if (mysqli_query($conn, "UPDATE table_biller SET `status` = 2 WHERE id = $biller_id")) {
                                 echo json_encode(array("status" => true, "msg" => "Thay đổi trạng thái đơn hàng thành công!"));
                             } else {
@@ -40,7 +40,7 @@ if (check_login()) {
                             }
                         }
                     } elseif ($status == 3) {
-                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] != $row_biller["user_id"])) {
+                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] != $account->get_id() && $row_biller["user_id"] == $account->get_id())) {
                             if (mysqli_query($conn, "UPDATE table_biller SET `status` = 3 WHERE id = $biller_id")) {
                                 echo json_encode(array("status" => true, "msg" => "Thay đổi trạng thái đơn hàng thành công!"));
                             } else {
@@ -48,7 +48,7 @@ if (check_login()) {
                             }
                         }
                     } elseif ($status == 4) {
-                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] != $row_biller["user_id"])) {
+                        if ($account->get_role() == "admin" || ($row_biller["status"] == 2 && $row_biller["user_ower"] != $account->get_id() && $row_biller["user_id"] == $account->get_id())) {
                             if (mysqli_query($conn, "UPDATE table_biller SET `status` = 4 WHERE id = $biller_id")) {
                                 echo json_encode(array("status" => true, "msg" => "Thay đổi trạng thái đơn hàng thành công!"));
                             } else {
