@@ -24,29 +24,19 @@
                 <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-list"></i><span>Danh mục</span></a>
                 <ul class="ml-menu">
                     <li><a href="list_add.php">Danh sách danh mục</a></li>
-                    <li><a href="list_add.php">Thêm danh mục</a></li>
-                    <li><a href="list_add.php">Thêm danh mục</a></li>
-                    <li><a href="list_edit.php">Sửa danh mục</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);" class="menu-toggle"><i class="fab fa-product-hunt"></i><span>Sản phẩm</span></a>
                 <ul class="ml-menu">
                     <li><a href="/admin/product/view.php">Danh sách sản phẩm</a></li>
-                    <li><a href="list_add.php">Thêm sản phẩm</a></li>
-                    <li><a href="list_edit.php">Sửa sản phẩm</a></li>
                 </ul>
             </li>
             <li>
-                <a href="javascript:void(0);" class="menu-toggle"><i class="fas fa-users"></i> <span>Thành viên</span></a>
-                <ul class="ml-menu">
-                    <li><a href="list_add.php">Danh sách thành viên</a></li>
-                    <li><a href="list_add.php">Thêm thành viên</a></li>
-                    <li><a href="list_edit.php">Sửa thành viên</a></li>
-                </ul>
+                <a href="/admin/biller/view.php" class="menu-toggle"><i class="fas fa-shopping-cart"></i> <span>Danh sách đơn hàng</span></a>
             </li>
             <li>
-                <a href="/admin/biller/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Danh sách đơn hàng</span></a>
+                <a href="/admin/history/payment.php" class="menu-toggle"><i class="fas fa-money-check-alt"></i><span>Lịch sử thanh toán tự động</span></a>
             </li>
             <li>
                 <a href="/admin/system/view.php" class="menu-toggle"><i class="fas fa-users"></i> <span>Hệ thống</span></a>

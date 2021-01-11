@@ -41,7 +41,17 @@ $res = mysqli_query($conn, "SELECT table_biller.*, table_product.poster, table_p
                                 $poster = mysqli_fetch_array($poster);
                         ?>
                                 <div class="col-lg-3 col-sm-6 mt-2"><a class="col-sm-12 product_item d-block" href="/biller/biller.php?id=<?php echo $row["id"] ?>">
-                                <img src="<?php echo $poster["url_file"]; ?>">
+                                        <div class="ribbon" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 150px;">
+                                            <div>
+                                                <?php if ($row["status"] == 0) echo "Đã hủy";
+                                                elseif ($row["status"] == 1) echo "Đang xử lý";
+                                                elseif ($row["status"] == 2) echo "Đang vận chuyển";
+                                                elseif ($row["status"] == 3) echo "Đã nhận hàng";
+                                                elseif ($row["status"] == 4) echo "Hàng lỗi - Đang đợi hoàn tiền";
+                                                elseif ($row["status"] == 5) echo "Hàng lỗi - Đã hoàn tiền"; ?>
+                                            </div>
+                                        </div>
+                                        <img src="<?php echo $poster["url_file"]; ?>">
                                         <div class="info_item">
                                             <div class="name_item"><?php echo $row["name"]; ?></div>
                                             <div class="des_item">

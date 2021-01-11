@@ -106,7 +106,7 @@ if (!function_exists('imap_open')) {
                                 $soluong = $table_biller["soluong"];
                                 $user_id = $table_biller["user_id"];
                                 $account = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM table_accounts WHERE `id` = '$user_id'"));
-                                $message = $account['first_name'] . " " . $account["last_name"] . " (" . $account["email"] . ") đã thanh toán thành công đơn hàng #" . $id . " với số tiền: " . $money;
+                                $message = $account['first_name'] . " " . $account["last_name"] . " (" . $account["email"] . ") đã thanh toán thành công đơn hàng #" . $id . " với số tiền: " . number_format($money)." VND";
                                 mysqli_query($conn, "INSERT INTO table_history_payemnt (`vnd`,`from_biller`,`from_user`,`message`) VALUES ($money,$id," . $account["id"] . ",'$message')");
                                 mysqli_query($conn, "UPDATE table_product SET `selled` = `selled` + $soluong WHERE `id` = '$product_id'");
                                 send_mail($account["email"], $table_biller);

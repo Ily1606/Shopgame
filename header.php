@@ -11,5 +11,6 @@
     <link rel="stylesheet" type="text/css" href="/assets/fontawesome/css/all.css">
     <link rel="stylesheet" type="text/css" href="/assets/toastr/css/toastr.css">
     <script src="/assets/jquery/jquery.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
     <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/toastr/js/toastr.min.js"></script>

@@ -40,7 +40,8 @@ $res = mysqli_query($conn, "SELECT table_biller.*, table_product.poster, table_p
                                 $poster = mysqli_query($conn, "SELECT * FROM table_medias WHERE id = $poster_id");
                                 $poster = mysqli_fetch_array($poster);
                         ?>
-                                <div class="col-lg-3 col-sm-6 mt-2"><a class="col-sm-12 product_item d-block" href="/biller/biller.php?id=<?php echo $row["id"] ?>"><img src="<?php echo $poster["url_file"]; ?>">
+                                <div class="col-lg-3 col-sm-6 mt-2"><a class="col-sm-12 product_item d-block" href="/biller/biller.php?id=<?php echo $row["id"] ?>">
+                                <img src="<?php echo $poster["url_file"]; ?>">
                                         <div class="info_item">
                                             <div class="name_item"><?php echo $row["name"]; ?></div>
                                             <div class="des_item">
