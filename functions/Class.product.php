@@ -63,6 +63,24 @@ class Product
         }
         return $poster;
     }
+    function get_list_poster()
+    {
+        $data = $this->data;
+        $data_poster = json_decode($data["poster"], true);
+        $list_poster = array();
+        if (count($data_poster) > 0) {
+            for ($i = 0; $i < count($data_poster); $i++) {
+                $id_poster = $data_poster[$i];
+                $poster = mysqli_query($this->conn, "SELECT * FROM table_medias WHERE id = $id_poster");
+                $poster = mysqli_fetch_assoc($poster);
+                $poster = $poster["url_file"];
+                array_push($list_poster,$poster);
+            }
+        } else {
+            $list_poster = array("/assets/img/no_thumb.png");
+        }
+        return $list_poster;
+    }
     function get_banner()
     {
         $data = $this->data;

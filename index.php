@@ -49,7 +49,7 @@ if ($check_login) {
                                     $i++;
                                     $product = new Product(null, $row);
                                     $banner = $product->get_banner(); ?>
-                                    <div class="item" style="background-image: url('<?php echo $banner ?>')" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></div>
+                                    <a href="/item.php?id=<?php echo $row["id"]; ?>" class="item" style="background-image: url('<?php echo $banner ?>')" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -151,67 +151,5 @@ if ($check_login) {
     </div>
     <?php include_once("footer.php") ?>
 </body>
-<script type="text/javascript">
-    /*
-    function myFunction() {
-        var khoi = document.querySelectorAll(".fixed");
-        khoi[0].classList.add("move");
-        var khoi = document.querySelectorAll(".fixed-1");
-        khoi[0].classList.add("move_1");
-    }
-
-    function myShow() {
-        var show = document.querySelectorAll(".fixed-1");
-        show[0].classList.remove("move_1");
-        var show = document.querySelectorAll(".fixed");
-        show[0].classList.remove("move");
-    }
-
-
-    var slider_poster = document.querySelectorAll('.box-img');
-    slider_poster = slider_poster[0];
-    var image = <?php echo json_encode($array_banner); ?>;
-    var i = image.length;
-    var start = true;
-    slider_poster.innerHTML = '<img src="' + image[0] + '" width="700px" height="400px"/>';
-
-    function reload_dot(i) {
-        $(".li-flex>div").removeClass("border-li-1");
-        $(".li-flex>div:nth-of-type(" + (i) + ")").addClass("border-li-1");
-    }
-
-    function myNext() {
-        if (start == true) {
-            i = 2;
-            start = false;
-        } else {
-            if (i < image.length) {
-                i = i + 1;
-            } else {
-                i = 1;
-            }
-        }
-        reload_dot(i);
-        slider_poster.innerHTML = '<img src="' + image[i - 1] + '" width="700px" height="400px"/>';
-        slider_poster[0].classList.add("img_animation_1");
-    }
-
-    function myBack() {
-        if (i == 1)
-            i = image.length;
-        else
-            i--;
-        reload_dot(i);
-        slider_poster.innerHTML = '<img src="' + image[i - 1] + '" width="700px" height="400px"/>';
-    }
-    */
-    data = $("#layerslider").layerSlider({
-        skin: 'skin',
-        autoPlayVideos: false,
-        firstLayer: 'random',
-
-        skinsPath: '/assets/layerslider/css/'
-    });
-</script>
 
 </html>

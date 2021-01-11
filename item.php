@@ -30,7 +30,6 @@ if ($product->num) {
 <head>
     <meta charset="utf-8">
     <title><?php echo $product->get_name(); ?></title>
-    <link rel="stylesheet" href="/css3/index.css">
     <?php include_once("header.php"); ?>
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
@@ -48,6 +47,16 @@ if ($product->num) {
                     <div class="row m-2">
                         <div class="col-lg-6">
                             <img src="<?php echo $banner ?>">
+                            <h6 class="mt-4">Ảnh của sản phẩm</h6>
+                            <div class="d-block list_picture mt-2">
+                                <?php
+                                $list_poster = $product->get_list_poster();
+                                for ($i = 0; $i < count($list_poster); $i++) { ?>
+                                    <div class="d-inline-block p-0 show_modal_img"><img src="<?php echo $list_poster[$i]; ?>" /></div>
+                                <?php }
+                                ?>
+
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <?php
@@ -150,6 +159,11 @@ if ($product->num) {
             </div>
         </div>
     </div>
+    <div class="modal_bg">
+        <span aria-hidden="true" class="close_modal">&times;</span>
+    </div>
+    <div class="modal_content">
+    </div>
     <?php include_once("footer.php"); ?>
     <script>
         $(document).ready(function() {
@@ -192,6 +206,14 @@ if ($product->num) {
                     }
                 })
             });
+            $(".show_modal_img").click(function() {
+                $(".modal_bg").fadeIn();
+                $(".modal_content").html('<img src="' + $(this).find('img').attr('src') + '">').fadeIn();
+            });
+            $(".modal_bg, .close_modal").click(function() {
+                $(".modal_bg").fadeOut();
+                $(".modal_content").fadeOut();
+            })
         });
     </script>
 </body>
