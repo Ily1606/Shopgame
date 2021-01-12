@@ -33,7 +33,7 @@
 1. Mô hình MVC (moddle/user.php)
 2. Hướng đối tượng (functions/Class... file)
 3. Ajax đăng nhập, đăng ký
-4. Nén ảnh, lấy mail theo IMAP PHP (dùng để giao dịch của momo)
+4. Nén ảnh, lấy mail theo IMAP PHP (dùng để lấy giao dịch của momo)
 5. Gửi mail dạng HTML (dùng để thông báo với người dùng nếu người dùng thanh toán trực tuyến thành công)
 
 ## Kết luận update ngày 01/12/2020
