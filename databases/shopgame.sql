@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 10, 2021 lúc 06:21 PM
+-- Thời gian đã tạo: Th1 12, 2021 lúc 03:22 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -83,7 +83,9 @@ INSERT INTO `table_biller` (`id`, `id_product`, `user_id`, `money`, `soluong`, `
 (7, 5, 3, 20000, 1, 20000, 0, 20000, 1, 1, 'IN_GAME', 'IN_GAME', '2020-12-30 14:15:34'),
 (8, 8, 4, 50000, 1, 50000, 0, 50000, 1, 4, 'IN_GAME', 'IN_GAME', '2020-12-30 14:30:25'),
 (9, 9, 3, 20000, 1, 20000, 10000, 30000, 1, 0, '15 - Nguyễn Đình Hiến - Quận Ngũ Hành Sơn - TP.Đà Nẵng', '03258267412', '2020-12-31 02:53:45'),
-(10, 9, 3, 20000, 1, 20000, 10000, 30000, 0, 0, '15 - Nguyễn Đình Hiến', '0328267412', '2020-12-31 03:39:41');
+(10, 9, 3, 20000, 1, 20000, 10000, 30000, 0, 0, '15 - Nguyễn Đình Hiến', '0328267412', '2020-12-31 03:39:41'),
+(13, 10, 4, 39800, 2, 19900, 20000, 59800, 0, 0, 'ABC', '0328267412', '2021-01-11 03:55:59'),
+(14, 10, 4, 19900, 1, 19900, 20000, 39900, 1, 2, 'ABC', '0328267412', '2021-01-11 03:56:37');
 
 -- --------------------------------------------------------
 
@@ -142,8 +144,16 @@ CREATE TABLE `table_history_payemnt` (
   `from_biller` varchar(255) DEFAULT NULL,
   `from_user` int(11) NOT NULL,
   `message` text DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
   `create_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `table_history_payemnt`
+--
+
+INSERT INTO `table_history_payemnt` (`id`, `vnd`, `from_biller`, `from_user`, `message`, `status`, `create_time`) VALUES
+(1, 50000, '14', 4, 'Test1 Nguyên (no1.ily1606@gmail.com) đã thanh toán thành công đơn hàng #14 với số tiền: 50000', 5, '2021-01-11 03:59:03');
 
 -- --------------------------------------------------------
 
@@ -183,7 +193,9 @@ INSERT INTO `table_medias` (`id`, `type`, `user_upload`, `url_file`, `create_tim
 (30, 'images', 3, '/storage/images/3_929579702819200.jpeg', '2020-12-31 02:52:22'),
 (31, 'images', 3, '/storage/images/3_538139105514416.jpeg', '2020-12-31 02:52:46'),
 (32, 'images', 5, '/storage/images/5_1290141922310505.jpeg', '2021-01-10 09:47:39'),
-(33, 'images', 5, '/storage/images/5_555787017303476.jpeg', '2021-01-10 09:47:56');
+(33, 'images', 5, '/storage/images/5_555787017303476.jpeg', '2021-01-10 09:47:56'),
+(34, 'images', 3, '/storage/images/3_798665110402705.jpeg', '2021-01-12 01:54:25'),
+(35, 'images', 3, '/storage/images/3_826494718360806.jpeg', '2021-01-12 01:54:28');
 
 -- --------------------------------------------------------
 
@@ -229,7 +241,8 @@ INSERT INTO `table_product` (`id`, `name`, `descryption`, `money`, `user_id`, `s
 (7, 'Tay cầm chơi game PUGB - Terios T6 hỗ trợ app map phím Shootingplus v3', 'Bộ sản phẩm bao gồm: 1 tay cầm + 1 cáp sạc kết nối bluetooth với android\r\nBạn cần chơi trên PS3, PC, Laptop window 7 trở lên: mua kèm usb trong option\r\nLinkreview: https://youtu.be/P72MiQVM5RU\r\n\r\n==============================================================\r\nHỗ trợ app Shooting Plus V3 chơi trên iOS, Android\r\nHỗ trợ usb wifi chơi trên pc, ps3 hoặc laptop (mua kèm) vì usb theo Terios T6 là usb giả không dùng được\r\nPin sạc dùng lên tới 6-8h\r\nĐế giữ điện thoại 6inch-6.3inch\r\nĐơn giản và dễ sử dụng\r\n===================================\r\n\r\nHỗ trợ chơi trên android, android box, tivi thông minh chạy android\r\nChơi trên iOS: như iPHone, iPad (ios 13.3 trở xuống)\r\nKèm usb wifi đi kèm chơi trên pc, laptop hoặc ps3\r\nChơi PUBG không bị ban nick, chỉ cần map phím (chỉ dùng trên shootingplus v3)\r\nĐế giữ điện thoại lên tới 6inch\r\n=====================================================\r\n\r\nHướng dẫn kết nối tay cầm chơi game Terios T6\r\nAndroid:\r\nKết nối qua ứng dụng Shootingplus V3 Nhấn giữ 2 nút A (HOẶC ANDROID + Nguồn\r\nKết nối thông thường nhấn giữ X + Nguồn (X trước)\r\n\r\nMở điện thoại, tablet hoặc tivi android dò tìm và kết nối. Phần lớn các game trên CH Play có thể chơi trực tiếp không cần map phím.\r\n\r\nXem video hướng dẫn: https://youtu.be/l_qNGINgX3Q\r\n \r\n=================================================\r\niOS: iPhone,iPad (hiện chỉ hỗ trợ ios 13.3 trở xuống)\r\nKết nối qua ứng dụng ShootingPlus V3 Nhấn giữ 2 nút Y (HOẶC IOS) + Nguồn .)\r\nTrên iphone, ipad mở kết nối bluetooth\r\nTrên iOS cần tải ứng dụng shooting plusv3 (tải trên app store)\r\n\r\nVideo online hướng dẫn sử dụng shootingplus v3: https://youtu.be/mW6GdWfyEPI\r\n \r\nVới PS3, PC hoặc window kết nối qua usb:\r\nGắn usb vào máy tính, hoặc PS3 trước\r\nTrên tay game Terios T6 nhấn 2 nút L1+ nguồn (L1 trước)\r\n\r\nXem video hướng dẫn Shootingpllus v3 treen android: https://youtu.be/l_qNGINgX3Q --&gt; chỉ dùng cho tay game có hỗ trợ app\r\nTren ios: https://youtu.be/mW6GdWfyEPI\r\n\r\nLink chơi game online hỗ trợ tay cầm simulator:\r\nhttps://www.crazygames.com/t/sim\r\nhttps://itch.io/games/free/input-gamepad/platform-windows\r\n\r\nChơi game giả lập:\r\nGiả lập N64: https://kenhgiatot.com/blogs/huong-dan-su-dung/huong-dan-gia-lap-nintendon64-choi-tren-window-va-android\r\nGiả lập Nes.emu: https://kenhgiatot.com/blogs/huong-dan-su-dung/huong-dan-choi-game-nes-tren-android-box\r\nGiả lập PPSSPP: https://kenhgiatot.com/blogs/huong-dan-su-dung/huong-dan-choi-ppsspp-tren-android\r\nLink tải game giả lập GBA: https://romsmania.cc/roms/gameboy-advance\r\nLink tải game giả lập PSP: https://downloadgamepsp.com/\r\nLink tải game giả lập: https://romhustler.org/roms/gba\r\n\r\n\r\nHướng dẫn sử dụng tay cầm chơi game\r\nList game hỗ trợ tay cầm trên điện thoại android: kenhgiatot.com/blogs/news/list-game-ho-tro-tay-cam-choi-game-tren-dien-thoai-android-va-ios\r\nList game hỗ trợ tay cầm trên android box: kenhgiatot.com/blogs/diem-game/tong-hop-game-ho-tro-tay-cam-choi-game-tren-android-tv-box\r\nList game hỗ trợ tay cầm trên win', 299000, 3, 1, 4, '[12]', '[]', 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, '2020-12-23 17:21:47'),
 (8, 'Gift code Yasuo', 'Gift code Yasuo giá rẻ', 50000, 3, 10, 1, '[26,27]', '[28]', 0, 0, 0, 0, 4, 1, 0, 0, 1, 0, 0, '2020-12-28 14:31:18'),
 (9, 'Áo thun leesin', 'Áo thun leesin', 20000, 3, 10, 1, '[31]', '[]', 0, 0, 0, 0, 3, 1, 0, 0, 1, 1, 10000, '2020-12-31 02:52:27'),
-(10, 'Ba lô PUBG', 'Thông tin sản phẩm: \r\n- Balo 3D là mẫu balo chiến thuật, có thể tích khoảng 45 lít, phù hợp với dùng hàng ngày hoặc đi du lịch từ 3 đến 5 ngày.\r\n- Balo có kích thước 33cm x 18cm x 46cm\r\n- Balo có một ngăn chính và 2 ngăn phụ, mỗi ngăn đều có khóa kéo 2 chiều và lớp vải nilon chống nước, \r\n- Mặt trước có một miếng velcro để dán patch\r\n- Các hàng molle được bố trí hợp lý và chuẩn size, để gắn thêm các loại phụ kiện, pouch\r\n- Phần lưng được thiết kế đệm mút để giúp nâng đỡ balo cũng như đeo lâu không bị mỏi\r\n- Quai đeo cũng được trang bị đệm mút và dây rút điều chỉnh size nhanh\r\n- Ngoài ra còn có hệ thống dây trợ lực ở ngực và thắt lưng giúp cố định balo và giảm tải trọng lên vai.\r\nLưu ý: Quý khách vui lòng chọn đúng size và màu sắc theo hệ thống. Ko giải quyết các trường hợp đặt 1 màu ghi chú và inbox lại là màu và size khác. Xin cảm ơn.\r\n**************************************************\r\n➡ SHIP COD TOÀN QUỐC \r\n➡ NHẬN HÀNG TRƯỚC - TRẢ TIỀN SAU\r\n*** CAM KẾT: Đổi trả hàng MIỄN PHÍ khi SHOP giao nhầm màu, nhầm size ***\r\n&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\r\nTHẾ GIỚI THỂ THAO - CHUYÊN ĐỒ PHƯỢT - ĐỒ THỂ THAO DU LỊCH', 199000, 5, 100, 4, '[32]', '[33]', 1610272756, 1611568756, 10, 1, 7, 0, 0, 0, 1, 1, 20000, '2021-01-10 09:53:31');
+(10, 'Ba lô PUBG', 'Thông tin sản phẩm: \r\n- Balo 3D là mẫu balo chiến thuật, có thể tích khoảng 45 lít, phù hợp với dùng hàng ngày hoặc đi du lịch từ 3 đến 5 ngày.\r\n- Balo có kích thước 33cm x 18cm x 46cm\r\n- Balo có một ngăn chính và 2 ngăn phụ, mỗi ngăn đều có khóa kéo 2 chiều và lớp vải nilon chống nước, \r\n- Mặt trước có một miếng velcro để dán patch\r\n- Các hàng molle được bố trí hợp lý và chuẩn size, để gắn thêm các loại phụ kiện, pouch\r\n- Phần lưng được thiết kế đệm mút để giúp nâng đỡ balo cũng như đeo lâu không bị mỏi\r\n- Quai đeo cũng được trang bị đệm mút và dây rút điều chỉnh size nhanh\r\n- Ngoài ra còn có hệ thống dây trợ lực ở ngực và thắt lưng giúp cố định balo và giảm tải trọng lên vai.\r\nLưu ý: Quý khách vui lòng chọn đúng size và màu sắc theo hệ thống. Ko giải quyết các trường hợp đặt 1 màu ghi chú và inbox lại là màu và size khác. Xin cảm ơn.\r\n**************************************************\r\n➡ SHIP COD TOÀN QUỐC \r\n➡ NHẬN HÀNG TRƯỚC - TRẢ TIỀN SAU\r\n*** CAM KẾT: Đổi trả hàng MIỄN PHÍ khi SHOP giao nhầm màu, nhầm size ***\r\n&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\r\nTHẾ GIỚI THỂ THAO - CHUYÊN ĐỒ PHƯỢT - ĐỒ THỂ THAO DU LỊCH', 199000, 5, 100, 4, '[32]', '[33]', 1610272756, 1611568756, 10, 1, 7, 1, 0, 0, 1, 1, 20000, '2021-01-10 09:53:31'),
+(11, 'Móc khóa PUBG', 'Móc khóa pubg - Mẫu Mới Đa Dạng\r\n&quot;LOOT ĐỒ AN TOÀN - DỄ DÀNG TOP 1&quot;\r\nCác tín đồ PUBG hãy CHẠY NGAY ĐI để trở thành &quot;Loot thủ&quot;\r\n- Móc chìa khóa PUBG chất như nước cất\r\n- Chất liệu: hợp kim không rỉ\r\n- Mô phỏng game PUBG 100% y như thật - PlayerUnknown\'s Battlegrounds \r\n- Vật liệu Hợp Kim ZinC siêu bền, không cũ, không rỉ sét\r\n - Nước sơn xước sần mô phỏng giống thật\r\n - Màu sắc đẹp, sơn mô phỏng y như trong game PC lẫn mobile \r\n- Sản phẩm dựa theo tỉ lệ sản phẩm thật, được rút gọn nhỏ để làm móc khóa, rất kute, đẹp, cool, ngầu\r\n- Có thể làm quà tặng, lưu niệm, móc khóa\r\n - Có thể trưng bày, sưu tầm\r\nXem thêm tại : https://www.facebook.com/mockhoapubgtphcm\r\nPUBG is My Life:  0963.441.221  - 0937.556.580\r\nĐịa chỉ Mua Tận Shop : 77 Nguyễn Hữu Dật, P. Tây Thạnh, Quận Tân Phú ( Gọi trước khi tới )', 15000, 3, 2000, 4, '[34]', '[35]', 1610416470, 1611626070, 1, 1, 8, 0, 0, 0, 1, 1, 20000, '2021-01-12 01:54:30');
 
 -- --------------------------------------------------------
 
@@ -255,7 +268,8 @@ INSERT INTO `table_types` (`id`, `name`, `user_create`, `create_time`, `status`)
 (4, 'Giftcode', 3, '2020-12-23 12:25:49', 0),
 (5, 'Tất', 3, '2020-12-23 13:46:10', 0),
 (6, 'Phụ kiện', 3, '2020-12-23 17:21:14', 0),
-(7, 'Ba lô', 5, '2021-01-10 09:46:45', 0);
+(7, 'Ba lô', 5, '2021-01-10 09:46:45', 0),
+(8, 'Móc khóa', 3, '2021-01-12 01:53:38', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -323,7 +337,7 @@ ALTER TABLE `table_accounts`
 -- AUTO_INCREMENT cho bảng `table_biller`
 --
 ALTER TABLE `table_biller`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `table_config`
@@ -341,25 +355,25 @@ ALTER TABLE `table_games`
 -- AUTO_INCREMENT cho bảng `table_history_payemnt`
 --
 ALTER TABLE `table_history_payemnt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `table_medias`
 --
 ALTER TABLE `table_medias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `table_product`
 --
 ALTER TABLE `table_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `table_types`
 --
 ALTER TABLE `table_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
