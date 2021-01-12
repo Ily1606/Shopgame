@@ -27,8 +27,6 @@
 10. Thêm danh mục game, loại sản phẩm (ở mục thêm sản phẩm)
 11. Tìm kiếm sản phẩm theo từ khóa (tách từng từ ra để tìm, không phải tìm kiếm theo cả cụm từ)
 12. Đăng nhập bằng facebook, google
->
-> 5. Updating....
 
 ## Các kỹ năng áp dụng
 
@@ -42,7 +40,7 @@
 >
 > Tập trung vào front-end, dựng back-end theo hướng đối tượng trước.
 
-## Kết luận update ngày 01/12/2020
+## Kết luận update ngày 12/01/2021
 > Tính năng mới update:
 >* Admin
 1. Ban thành viên, ban sản phẩm
