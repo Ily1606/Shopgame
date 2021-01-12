@@ -42,11 +42,8 @@ if ($check_login) {
                         <div class="container-general">
                             <div class="gallery-wrap">
                                 <?php
-                                $i = 0;
-                                $res_product = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,10");
+                                $res_product = mysqli_query($conn, "SELECT * FROM table_product WHERE `status` = 1 ORDER BY create_time DESC LIMIT 0,5"); //? Result query
                                 while ($row = mysqli_fetch_array($res_product)) {
-                                    if ($i > 4) break;
-                                    $i++;
                                     $product = new Product(null, $row);
                                     $banner = $product->get_banner(); ?>
                                     <a href="/item.php?id=<?php echo $row["id"]; ?>" class="item" style="background-image: url('<?php echo $banner ?>')" alt="<?php echo $product->get_name(); ?>" title="<?php echo $product->get_name(); ?>"></a>
@@ -67,7 +64,7 @@ if ($check_login) {
                     while ($row = mysqli_fetch_array($res)) {
                         $product = new Product(null, $row);
                         $money = number_format($product->get_money()) . " VND";
-                        $selled = $product->get_selled();
+                        $selled = $product->get_selled(); //Số lượng sản phẩm đã bán
                         $poster = $product->get_poster();
                     ?>
                         <a href="/item.php?id=<?php echo $row["id"]; ?>" class="border-img">

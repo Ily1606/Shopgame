@@ -168,8 +168,8 @@ class Product
     function get_current_money()
     {
         if ($this->get_enable_sale()) {
-            if (getdate()[0] <= $this->get_end_sale()) {
-                return $this->get_money() * $this->get_money_sale() / 100;
+            if (time() <= $this->get_end_sale()) {
+                return $this->get_money() * (100 - $this->get_money_sale()) / 100;
             }
         } else {
             return $this->get_money();

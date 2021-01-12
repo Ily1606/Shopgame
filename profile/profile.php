@@ -81,7 +81,7 @@ if ($check_login) {
                         <p class="h3 mb-2">Các thành tựu</p>
                         <p>
                             <?php
-                            $res = mysqli_query($conn, "SELECT COUNT(*) as counted FROM table_product WHERE user_id = $id");
+                            $res = mysqli_query($conn, "SELECT COUNT(*) as counted FROM table_product WHERE user_id = $id"); //Đếm số hàng của người dùng
                             $row_1 = mysqli_fetch_assoc($res);
                             ?>
                             Tổng số sản phẩm đã bán: <?php echo $row_1["counted"]; ?>
