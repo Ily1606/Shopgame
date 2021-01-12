@@ -1,7 +1,7 @@
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="/"><img src="../assets/images/favicon.png" width="25" alt="Aero" /><span class="m-l-10">Shop game</span></a>
+        <a href="/"><img src="/assets/img/logo-72.png" width="25" alt="Aero" /><span class="m-l-10">Shop game</span></a>
     </div>
     <div class="menu">
         <ul class="list">
