@@ -96,7 +96,10 @@ if (mysqli_num_rows($res)) {
                             <div class="h6 text-success">Thanh toán trực tuyến</div>
                             <div class="row">
                                 <div class="col-6 font-weight-bold">Chuyển khoản momo (shopgame làm trung gian):</div>
-                                <div class="col-6">Nội dung: Shopgame biller <?php echo $row["id"]; ?></div>
+                                <div class="col-6">
+                                    <div>Số điện thoại Shopgame: 0328267412</div>
+                                    <div>Nội dung: Shopgame biller <?php echo $row["id"]; ?></div>
+                                </div>
                                 <div class="col-12">
                                     <p class="text-danger">
                                         <?php if ($row["user_ower"] == $id && $row["payed"] == 1) echo 'Người dùng này đã thanh toán trực tuyến sản phẩm, nếu kiện hàng của bạn thanh toán online, vui lòng gửi sản phẩm đến email của người dùng.';

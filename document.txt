@@ -1,0 +1,6 @@
+Hướng dẫn sử dụng:
+1) Tạo database và nhập database vào CSDL
+2) Cấu hình file _connect.php từ bước 1
+3) Đổi tên email + mk để lấy giao dịch từ momo ở file ("functions\momo\checkmomo.php", "functions\momo\checkmomo.php"), lưu ý là tài khoản + mk của gmail
+Ngoài ra có thể test lấy thử lịch sử giao dịch đã có ở momo bằng cách chạy file functions\momo\checkmomo.php
+Demo: http://shopgame.ily1606.com/
