@@ -23,7 +23,7 @@
                 <a href="/games.php?id=1"><img src="/assets/img/league-of-legends.png" class="icon_nav">Liên minh huyền thoại</a>
             </div>
             <div class="d-inline-block">
-                <a href="/types.php?id=4"><img src="/assets/img/pubg.png" class="icon_nav">PUBG</a>
+                <a href="/games.php?id=4"><img src="/assets/img/pubg.png" class="icon_nav">PUBG</a>
             </div>
         </div>
     </div>
